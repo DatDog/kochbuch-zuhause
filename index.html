@@ -174,8 +174,10 @@
   .swatch{
     position:relative; height:112px; width:100%;
     display:flex; align-items:flex-end; padding:10px;
+    overflow:hidden;
   }
   .swatch svg{position:absolute; inset:0; width:100%; height:100%; opacity:.5;}
+  .swatch img.photo{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:0;}
   .swatch .tag{
     position:relative; z-index:1;
     font-size:10.5px; font-weight:600; letter-spacing:.03em;
@@ -461,6 +463,14 @@
       </g>
     </svg>`;
   }
+  function swatchInner(r, id){
+    return r.image
+      ? `<img class="photo" src="${r.image}" alt="" loading="lazy" onerror="this.remove();">`
+      : swatch(id, r.colors[0], r.colors[1]);
+  }
+  function swatchBg(r){
+    return r.image ? 'none' : `linear-gradient(135deg, ${r.colors[0]}, ${r.colors[1]})`;
+  }
 
   const BASE_RECIPES = [
     {
@@ -603,7 +613,854 @@
         {text:'Kleine Tupfen auf ein Backblech spritzen.'},
         {text:'Bei niedriger Temperatur trocknen lassen, bis sie sich vom Blech lösen.', timer:5400}
       ]
-    }
+    },
+    {
+      id:'deutscher-kartoffel-crunchwrap',
+      title:'Deutscher Kartoffel-Crunchwrap',
+      tags:['Snack','Fusion'],
+      category:'Snack',
+      minutes:35,
+      baseServings:1,
+      lastCooked:null,
+      colors:['#d4a531','#7a5a35'],
+      image:'https://drive.google.com/uc?export=view&id=1N1wdoe2XcWSl_L9FVrSJKC07Q4DIqZwH',
+      nutrition:{kcal:780, protein:22, carbs:75, fat:44},
+      ingredients:[
+        {name:'Kartoffel', amount:1, unit:null},
+        {name:'Öl zum Braten', amount:1, unit:'EL'},
+        {name:'Zwiebel', amount:0.5, unit:null},
+        {name:'Knoblauchzehe', amount:1, unit:null},
+        {name:'Walnüsse, gehackt', amount:20, unit:'g'},
+        {name:'Tomatenmark', amount:1, unit:'TL'},
+        {name:'große Tortilla', amount:1, unit:null},
+        {name:'kleine Tortilla', amount:1, unit:null},
+        {name:'Käse, gerieben', amount:40, unit:'g'},
+        {name:'Schmand oder saure Sahne', amount:2, unit:'EL'},
+        {name:'Salat, in Streifen', amount:30, unit:'g'},
+        {name:'Tomate, gewürfelt', amount:0.5, unit:null},
+        {name:'Salz & Pfeffer', amount:0, unit:'nach Bedarf'}
+      ],
+      steps:[
+        {text:'Kartoffel grob reiben, mit den Händen und in einem Küchentuch gründlich ausdrücken.'},
+        {text:'Geriebene Kartoffeln in der Pfanne mit Öl zu einem Rösti formen und von beiden Seiten goldbraun braten, mit Salz würzen.', timer:480},
+        {text:'Zwiebel, Knoblauch und Walnüsse fein hacken.'},
+        {text:'Zwiebeln und Knoblauch anbraten, Walnüsse dazugeben, kurz mitrösten. Tomatenmark einrühren und abschmecken.'},
+        {text:'Große Tortilla auslegen, mittig mit Käse bestreuen und die warme Walnuss-Zwiebel-Masse daraufgeben.'},
+        {text:'Rösti auf die Füllung legen, mit Schmand bestreichen und mit Salat und Tomaten belegen.'},
+        {text:'Kleinen Tortilla-Kreis mittig auflegen und die Ränder der großen Tortilla straff zur Mitte falten, sodass ein Sechseck entsteht.'},
+        {text:'Crunchwrap mit der gefalteten Seite nach unten in einer heißen Pfanne anbraten, wenden und von beiden Seiten goldbraun toasten.', timer:300},
+        {text:'Tipp: Die geriebenen Kartoffeln gründlich auspressen, damit das Rösti kross wird und der Crunchwrap knusprig bleibt.'}
+      ]
+    },
+    {
+      id:'ultimative-same-day-focaccia',
+      title:'Ultimative Same-Day Focaccia (86% Hydratation)',
+      tags:['Backwaren','Italienisch','Beilage','Vegan','Vegetarisch'],
+      category:'Backwerk',
+      minutes:240,
+      baseServings:8,
+      lastCooked:null,
+      colors:['#d4a531','#8a9a3f'],
+      nutrition:{kcal:290, protein:7, carbs:46, fat:9},
+      ingredients:[
+        {name:'starkes Weizenmehl (Tipo 00 / 550)', amount:500, unit:'g'},
+        {name:'Wasser', amount:430, unit:'ml'},
+        {name:'Trockenhefe', amount:7, unit:'g'},
+        {name:'Salz', amount:12, unit:'g'},
+        {name:'Olivenöl (im Teig & zum Beträufeln)', amount:60, unit:'ml'},
+        {name:'grobes Meersalz', amount:0, unit:'nach Bedarf'}
+      ],
+      steps:[
+        {text:'Autolyse: Mehl mit dem Großteil des Wassers (ca. 380 ml) grob vermengen, bis kein trockenes Mehl mehr sichtbar ist. 30 Minuten abgedeckt ruhen lassen.', timer:1800},
+        {text:'Restliches Wasser mit Hefe, Salz und Olivenöl zur Mehlmischung geben und gründlich einarbeiten.'},
+        {text:'Teig 15 Minuten ruhen lassen, dann erste Runde Dehnen und Falten durchführen.', timer:900},
+        {text:'Im Abstand von 15 Minuten drei Runden Coil Folds mit feuchten Händen durchführen.'},
+        {text:'Teig ca. 1 Stunde bei Raumtemperatur abgedeckt gehen lassen (Bulk Rise).', timer:3600},
+        {text:'Backform mit Backpapier auslegen, großzügig mit Öl einölen, Teig hineingeben, wie einen Brief falten und mit glatter Seite nach oben legen.'},
+        {text:'In der Form ca. 1 Stunde zur Stückgare ruhen lassen, bis der Teig fluffig ist und die Form ausfüllt.', timer:3600},
+        {text:'Oberfläche mit Olivenöl beträufeln, Dimples eindrücken. 15 Minuten warten, ein zweites Mal eindrücken (Double Dimple).', timer:900},
+        {text:'Mit grobem Meersalz bestreuen und bei 220–230°C ca. 22–25 Minuten goldbraun backen.', timer:1380},
+        {text:'Tipp: Proteinreiches Mehl (Tipo 00 oder Manitoba) sorgt für einen stabileren Teig bei der hohen Hydratation. Mengen für Mehl, Hefe, Salz und Öl wurden anhand von Standard-Focaccia-Rezepten geschätzt, da im Originalvideo nur die Hydratationsrate genannt wurde.'}
+      ]
+    },
+    {
+      id:'crispy-honey-garlic-chicken',
+      title:'Crispy Honey Garlic Chicken (Honig-Knoblauch-Hähnchen)',
+      tags:['Hähnchen','Asiatisch'],
+      category:'Hauptgericht',
+      minutes:40,
+      baseServings:2,
+      lastCooked:null,
+      colors:['#d4a531','#b5502e'],
+      image:'https://drive.google.com/uc?export=view&id=1xbdPACh813q7sf9vpdCO5KEwamhTTUnA',
+      nutrition:{kcal:620, protein:38, carbs:65, fat:22},
+      ingredients:[
+        {name:'Hähnchenoberschenkelfleisch', amount:400, unit:'g'},
+        {name:'Speisestärke', amount:2, unit:'EL'},
+        {name:'Pflanzenöl (zum Braten)', amount:100, unit:'ml'},
+        {name:'Butter', amount:1, unit:'EL'},
+        {name:'Honig', amount:4, unit:'EL'},
+        {name:'Sojasauce', amount:3, unit:'EL'},
+        {name:'Mirin', amount:1, unit:'EL'},
+        {name:'Knoblauchzehe, gehackt', amount:3, unit:null},
+        {name:'Chiliflocken', amount:1, unit:'TL'},
+        {name:'Wasser', amount:2, unit:'EL'},
+        {name:'Reis, gekocht', amount:300, unit:'g'},
+        {name:'Frühlingszwiebel', amount:1, unit:null},
+        {name:'Salz & Pfeffer', amount:0, unit:'nach Bedarf'}
+      ],
+      steps:[
+        {text:'Für die Sauce Honig, Sojasauce, Mirin, gehackten Knoblauch, Chiliflocken und Wasser gründlich verrühren.'},
+        {text:'Hähnchenfleisch mit Salz, Pfeffer, etwas Öl und Speisestärke vermengen, bis alle Stücke ummantelt sind.'},
+        {text:'In einer Pfanne ca. 1 cm hoch Öl erhitzen, Hähnchen von allen Seiten goldbraun und durchgaren, auf einem Gitter abtropfen lassen.', timer:600},
+        {text:'Restliches Bratöl abgießen, Butter in derselben Pfanne schmelzen lassen.'},
+        {text:'Vorbereitete Sauce dazugeben und köcheln lassen, bis sie leicht eindickt.', timer:180},
+        {text:'Knuspriges Hähnchen zurück in die Pfanne geben und durchschwenken, bis alles glasiert ist.'},
+        {text:'Auf warmem Reis anrichten und mit Frühlingszwiebelringen garnieren.'},
+        {text:'Tipp: Hähnchenoberkeulenfleisch bleibt saftiger als Brustfleisch; die Speisestärke sorgt für eine besonders krosse Kruste. Genaue Mengen der Saucenzutaten wurden geschätzt.'}
+      ]
+    },
+    {
+      id:'high-protein-buffalo-chicken-hot-pockets',
+      title:'High Protein Buffalo Chicken Hot Pockets',
+      tags:['Hähnchen','Proteinreich'],
+      category:'Snack',
+      minutes:210,
+      baseServings:10,
+      lastCooked:null,
+      colors:['#b5502e','#e8974a'],
+      image:'https://drive.google.com/uc?export=view&id=1GkveNd2Yv47qjNN-qULV5zg5vorQ52IR',
+      nutrition:{kcal:425, protein:50, carbs:38, fat:8},
+      ingredients:[
+        {name:'Hähnchenbrust', amount:800, unit:'g'},
+        {name:'Knoblauchsalz', amount:2, unit:'TL'},
+        {name:'geräucherte Paprika', amount:1, unit:'TL'},
+        {name:'Ranch-Gewürz', amount:1, unit:'EL'},
+        {name:'schwarzer Pfeffer', amount:1, unit:'TL'},
+        {name:'Salsa', amount:100, unit:'g'},
+        {name:'Zwiebel, gewürfelt', amount:1, unit:null},
+        {name:'Buffalo Sauce', amount:200, unit:'ml'},
+        {name:'körniger Frischkäse', amount:150, unit:'g'},
+        {name:'Frischkäse', amount:150, unit:'g'},
+        {name:'Zwiebelpulver', amount:1, unit:'TL'},
+        {name:'fettarme Milch', amount:100, unit:'ml'},
+        {name:'Mozzarella, gerieben', amount:150, unit:'g'},
+        {name:'Schnittlauch', amount:1, unit:'Bund'},
+        {name:'Self-Rising Flour', amount:400, unit:'g'},
+        {name:'griechischer Joghurt', amount:400, unit:'g'},
+        {name:'italienische Kräuter', amount:1, unit:'TL'}
+      ],
+      steps:[
+        {text:'Hähnchenbrust mit Knoblauchsalz, Paprika, Ranch-Gewürz, Pfeffer, Salsa, Zwiebelwürfeln und Buffalo Sauce im Slow Cooker auf hoher Stufe 2-3 Stunden schmoren lassen.', timer:9000},
+        {text:'Für die Buffalo-Sauce körnigen Frischkäse, Frischkäse, Knoblauchsalz, Pfeffer, Zwiebelpulver, Buffalo Sauce und Milch im Mixer glatt pürieren.'},
+        {text:'Gegartes Hähnchen zerzupfen, pürierte Sauce, Mozzarella und Schnittlauch unterheben.'},
+        {text:'Für den Teig Self-Rising Flour, Joghurt, Knoblauchsalz und italienische Kräuter zu einem glatten Teig kneten.'},
+        {text:'Teig in 10 Kugeln teilen, jede dünn ausrollen und mit Hähnchenfüllung sowie etwas Mozzarella füllen.'},
+        {text:'Ränder zusammendrücken und verschließen, sodass gefüllte Taschen entstehen.'},
+        {text:'In gefetteter, heißer Pfanne mit Deckel von beiden Seiten goldbraun anbraten, bis Teig gar und Käse geschmolzen ist.', timer:600},
+        {text:'Optional portionsweise einfrieren und in der Heißluftfritteuse, Pfanne oder Mikrowelle aufwärmen.'},
+        {text:'Tipp: Beim Anbraten unbedingt einen Deckel verwenden, damit der Teig innen durchbackt. Die Mozzarella-Menge wurde auf ca. 150g geschätzt.'}
+      ]
+    },
+    {
+      id:'high-protein-cajun-chicken-burritos',
+      title:'High Protein Cajun Chicken Burritos',
+      tags:['Hähnchen','Proteinreich','Mexikanisch'],
+      category:'Hauptgericht',
+      minutes:35,
+      baseServings:8,
+      lastCooked:null,
+      colors:['#c0432b','#d4a531'],
+      image:'https://drive.google.com/uc?export=view&id=1zq7kQpr_PL_3LSYpM9DMIPO8vZNCt4IB',
+      nutrition:{kcal:380, protein:32, carbs:38, fat:10},
+      ingredients:[
+        {name:'Hähnchenbrust, gewürfelt', amount:700, unit:'g'},
+        {name:'Zwiebel', amount:1, unit:null},
+        {name:'rote Paprika', amount:1, unit:null},
+        {name:'Cajun-Gewürz', amount:3, unit:'EL'},
+        {name:'griechischer Joghurt', amount:100, unit:'g'},
+        {name:'leichte Mayonnaise', amount:2, unit:'EL'},
+        {name:'Hot Sauce', amount:1, unit:'EL'},
+        {name:'Zitronensaft', amount:1, unit:'EL'},
+        {name:'Knoblauchpulver', amount:1, unit:'TL'},
+        {name:'Jasminreis, gekocht', amount:400, unit:'g'},
+        {name:'Tortilla-Wraps', amount:8, unit:null},
+        {name:'Öl zum Braten', amount:1, unit:'EL'}
+      ],
+      steps:[
+        {text:'Zwiebel und Paprika in kleine Würfel schneiden.'},
+        {text:'Gemüse in Öl anbraten, bis es weich und leicht gebräunt ist, dann herausnehmen.', timer:300},
+        {text:'Hähnchen in derselben Pfanne mit Cajun-Gewürz durchgaren.', timer:480},
+        {text:'Joghurt, Mayonnaise, Hot Sauce, Zitronensaft, 1 TL Cajun-Gewürz, Knoblauchpulver und etwas Wasser zu einer Sauce verrühren.'},
+        {text:'Sauce, gebratenes Gemüse und Reis zum Hähnchen geben und alles vermengen.'},
+        {text:'Füllung auf die Tortillas verteilen und zu festen Burritos rollen.'},
+        {text:'Burritos in der Pfanne von beiden Seiten goldbraun und knusprig anbraten.', timer:300},
+        {text:'Tipp: Für eine fettärmere Variante Hähnchenbrust statt Oberschenkel verwenden. Die Fleischmenge wurde auf ca. 700g geschätzt.'}
+      ]
+    },
+    {
+      id:'high-protein-garlic-parmesan-chicken-wraps',
+      title:'High Protein Garlic Parmesan Chicken Wraps',
+      tags:['Hähnchen','Proteinreich'],
+      category:'Hauptgericht',
+      minutes:40,
+      baseServings:10,
+      lastCooked:null,
+      colors:['#e8974a','#8a9a3f'],
+      image:'https://drive.google.com/uc?export=view&id=1v3cxZUb2mpZCThkX_T8qqbrtM5B_zxcv',
+      nutrition:{kcal:423, protein:41, carbs:25, fat:18},
+      ingredients:[
+        {name:'Hähnchenbrust, gewürfelt', amount:900, unit:'g'},
+        {name:'Salz', amount:1, unit:'TL'},
+        {name:'Chiliflocken', amount:1, unit:'TL'},
+        {name:'Petersilie, gehackt', amount:2, unit:'EL'},
+        {name:'italienische Kräuter', amount:1, unit:'EL'},
+        {name:'Paprikapulver', amount:1, unit:'EL'},
+        {name:'Knoblauch, gepresst', amount:3, unit:'Zehen'},
+        {name:'Olivenöl', amount:2, unit:'EL'},
+        {name:'Parmesan, gerieben', amount:80, unit:'g'},
+        {name:'leichte Butter', amount:2, unit:'EL'},
+        {name:'Kondensmilch (Evaporated Milk)', amount:200, unit:'ml'},
+        {name:'leichter Frischkäse', amount:100, unit:'g'},
+        {name:'Low-Carb Tortillas', amount:10, unit:null},
+        {name:'Salat, Zwiebeln, Tomaten', amount:1, unit:'nach Bedarf'}
+      ],
+      steps:[
+        {text:'Hähnchen würfeln, mit Salz, Chiliflocken, Petersilie, Kräutern, Paprika, Knoblauch, Öl und Parmesan marinieren.'},
+        {text:'Auf einem Backblech verteilen, leicht mit Öl besprühen und bei 200°C ca. 20-22 Minuten backen.', timer:1260},
+        {text:'Butter in einer Pfanne schmelzen, Kräuter, Knoblauch und Paprika kurz anrösten.'},
+        {text:'Kondensmilch, Parmesan und Frischkäse zugeben, unter Rühren köcheln lassen, bis die Sauce cremig eindickt.', timer:300},
+        {text:'Hähnchen aus dem Ofen nehmen, mit Parmesan und Petersilie bestreuen und vermengen.'},
+        {text:'Tortilla mit Salat, Zwiebeln und Tomaten belegen, Hähnchen darauf, mit Sauce beträufeln und einrollen.'},
+        {text:'Tipp: Kondensmilch ist eine fettärmere Alternative zu Sahne. Genaue Mengen für Gewürze und Sauce wurden anhand der Nährwertangaben geschätzt.'}
+      ]
+    },
+    {
+      id:'bounty-baellchen',
+      title:'Bounty Bällchen (Kokos-Schoko-Pralinen)',
+      tags:['Nachtisch','Kekse'],
+      category:'Nachtisch',
+      minutes:45,
+      baseServings:20,
+      lastCooked:null,
+      colors:['#7a5a35','#c9a25c'],
+      image:'https://drive.google.com/uc?export=view&id=14-EDsOB0Aoz4usTsseTLYMEjQfQE_8dp',
+      nutrition:{kcal:145, protein:1.8, carbs:7.5, fat:12},
+      ingredients:[
+        {name:'Kokosraspeln', amount:300, unit:'g'},
+        {name:'Mascarpone', amount:200, unit:'g'},
+        {name:'Kuvertüre / Schokolade', amount:250, unit:'g'},
+        {name:'Kokosöl', amount:1, unit:'EL'}
+      ],
+      steps:[
+        {text:'Kokosraspeln und Mascarpone zu einer homogenen, formbaren Masse verkneten.'},
+        {text:'Aus der Masse 20 gleich große Bällchen formen, optional 20-30 Minuten kühlen.', timer:1200},
+        {text:'Schokolade mit Kokosöl über dem Wasserbad oder in der Mikrowelle schmelzen.'},
+        {text:'Kokosbällchen auf einen Spieß stecken, vollständig in Schokolade tauchen, abtropfen lassen.'},
+        {text:'Schokoglasur im Kühlschrank vollständig aushärten lassen.', timer:1800},
+        {text:'Tipp: Ist die Masse zu feucht, mehr Kokosraspeln zugeben; ist sie zu bröselig, einen Esslöffel Mascarpone ergänzen.'}
+      ]
+    },
+    {
+      id:'hausgemachtes-ciabatta-brot',
+      title:'Hausgemachtes Ciabatta-Brot',
+      tags:['Backwaren'],
+      category:'Backwerk',
+      minutes:210,
+      baseServings:3,
+      lastCooked:null,
+      colors:['#e3e6d3','#d4a531'],
+      image:'https://drive.google.com/uc?export=view&id=17ohiiUFoyeOaOWC2my27ORo5o6fpXJj5',
+      nutrition:{kcal:460, protein:14, carbs:92, fat:1.5},
+      ingredients:[
+        {name:'Mehl', amount:500, unit:'g'},
+        {name:'lauwarmes Wasser', amount:400, unit:'ml'},
+        {name:'Trockenhefe', amount:7, unit:'g'},
+        {name:'Salz', amount:10, unit:'g'},
+        {name:'Mehl zum Bestäuben', amount:0, unit:'nach Bedarf'}
+      ],
+      steps:[
+        {text:'Lauwarmes Wasser und Trockenhefe in einer Schüssel vermengen.'},
+        {text:'Mehl und Salz dazugeben und zu einem klebrigen, feuchten Teig verrühren.'},
+        {text:'Abgedeckt ca. 30 Minuten ruhen lassen.', timer:1800},
+        {text:'Teig 2-3 Mal im Abstand von 30 Minuten dehnen und falten, bis er geschmeidig ist.', timer:1800},
+        {text:'Abgedeckt 1-2 Stunden gehen lassen, bis er sich vergrößert hat und Bläschen bildet.', timer:5400},
+        {text:'Arbeitsfläche bemehlen, Teig vorsichtig darauf gleiten lassen, ohne Luftblasen zu zerstören.'},
+        {text:'Mit einer Teigkarte in 3 gleich große Brote teilen.'},
+        {text:'Auf ein Backblech legen und nochmals 20-30 Minuten entspannen lassen.', timer:1500},
+        {text:'Bei 220°C mit etwas Dampf ca. 20-25 Minuten goldbraun backen.', timer:1350},
+        {text:'Tipp: Den Teig nicht kneten, sondern nur dehnen und falten, für die typisch großen Poren sehr sanft formen.'}
+      ]
+    },
+    {
+      id:'cremige-loaded-potato-soup',
+      title:'Cremige Loaded Potato Soup (Kartoffelsuppe mit Bacon & Cheddar)',
+      tags:['Suppe','Comfort Food'],
+      category:'Suppe',
+      minutes:50,
+      baseServings:4,
+      lastCooked:null,
+      colors:['#c9a25c','#7a2f2a'],
+      image:'https://drive.google.com/uc?export=view&id=1kk-NXSXsuaaD9I2Y-GJg9BsTBdIwhKOZ',
+      nutrition:{kcal:620, protein:22, carbs:48, fat:38},
+      ingredients:[
+        {name:'Bacon', amount:150, unit:'g'},
+        {name:'Zwiebel', amount:1, unit:null},
+        {name:'Staudensellerie', amount:1, unit:'Stange'},
+        {name:'Mehl', amount:3, unit:'EL'},
+        {name:'Milch', amount:500, unit:'ml'},
+        {name:'Hühnerbrühe', amount:500, unit:'ml'},
+        {name:'Paprikapulver', amount:1, unit:'TL'},
+        {name:'Kartoffeln, gewürfelt', amount:800, unit:'g'},
+        {name:'Cheddar, gerieben', amount:150, unit:'g'},
+        {name:'saure Sahne', amount:100, unit:'g'},
+        {name:'Frühlingszwiebel', amount:2, unit:null},
+        {name:'Salz & Pfeffer', amount:0, unit:'nach Bedarf'},
+        {name:'Brot zum Servieren', amount:0, unit:'nach Bedarf'}
+      ],
+      steps:[
+        {text:'Bacon in Streifen schneiden und knusprig anbraten, herausnehmen, Fett im Topf lassen.', timer:420},
+        {text:'Zwiebel und Sellerie würfeln und im Baconfett anschwitzen, bis sie weich sind.'},
+        {text:'Mehl darüberstreuen und kurz mit anschwitzen.'},
+        {text:'Milch und Hühnerbrühe unter Rühren nach und nach eingießen, damit keine Klümpchen entstehen.'},
+        {text:'Mit Pfeffer, Salz und Paprikapulver würzen.'},
+        {text:'Kartoffeln zugeben, aufkochen und ca. 20 Minuten köcheln lassen, bis sie weich sind.', timer:1200},
+        {text:'Einen Teil des Cheddars und den Großteil des Bacons einrühren und schmelzen lassen.'},
+        {text:'Mit saurer Sahne, restlichem Cheddar, Bacon und Frühlingszwiebeln garnieren, mit Brot servieren.'},
+        {text:'Tipp: Für eine sämigere Konsistenz einen Teil der Kartoffeln direkt im Topf leicht andrücken.'}
+      ]
+    },
+    {
+      id:'knusprige-akkordeon-kartoffeln',
+      title:'Knusprige Akkordeon-Kartoffeln (Accordion Potatoes)',
+      tags:['Beilage','Vegetarisch'],
+      category:'Beilage',
+      minutes:50,
+      baseServings:4,
+      lastCooked:null,
+      colors:['#d4a531','#49592f'],
+      image:'https://drive.google.com/uc?export=view&id=1nz7m-WdhY6s9dBLVuiIn3FIlFXMJU9LS',
+      nutrition:{kcal:260, protein:5, carbs:30, fat:14},
+      ingredients:[
+        {name:'festkochende Kartoffeln', amount:4, unit:null},
+        {name:'Olivenöl', amount:4, unit:'EL'},
+        {name:'Knoblauchzehe, gepresst', amount:2, unit:null},
+        {name:'Paprikapulver', amount:1, unit:'TL'},
+        {name:'Chiliflocken', amount:0.5, unit:'TL'},
+        {name:'getrocknete Kräuter', amount:1, unit:'TL'},
+        {name:'Parmesan, gerieben', amount:40, unit:'g'},
+        {name:'Petersilie', amount:1, unit:'EL'},
+        {name:'Salz & Pfeffer', amount:0, unit:'nach Bedarf'}
+      ],
+      steps:[
+        {text:'Kartoffeln schälen, Ränder gerade schneiden, sodass gleichmäßige Scheiben entstehen.'},
+        {text:'Jede Scheibe zwischen zwei Essstäbchen legen und vorne gerade einschneiden.'},
+        {text:'Scheibe wenden und hinten diagonal einschneiden für das Akkordeon-Muster.'},
+        {text:'Öl mit Knoblauch, Paprika, Chiliflocken, Kräutern, Salz und Pfeffer verrühren.'},
+        {text:'Kartoffeln auf ein Backblech legen und beidseitig mit dem Würzöl bepinseln.'},
+        {text:'Bei 200°C ca. 30-35 Minuten backen, bis goldbraun und knusprig.', timer:1950},
+        {text:'Mit Parmesan und Petersilie bestreuen und mit Dip servieren.'},
+        {text:'Tipp: Festkochende Kartoffeln verwenden, damit das Muster stabil bleibt; vor dem Backen kurz in kaltes Wasser legen für extra Knusprigkeit.'}
+      ]
+    },
+    {
+      id:'kinder-bueno-white-dessert-becher',
+      title:'Kinder Bueno White Dessert-Becher mit Knack-Schicht',
+      tags:['Nachtisch'],
+      category:'Nachtisch',
+      minutes:75,
+      baseServings:3,
+      lastCooked:null,
+      colors:['#e8b98f','#7a5a35'],
+      image:'https://drive.google.com/uc?export=view&id=1waI-OyExizRr_vu6e6Q_kQVJK3xYx9Dy',
+      nutrition:{kcal:770, protein:7, carbs:62, fat:54},
+      ingredients:[
+        {name:'Kinder Bueno White Riegel', amount:4, unit:null},
+        {name:'Schlagsahne', amount:300, unit:'ml'},
+        {name:'Puderzucker', amount:2, unit:'EL'},
+        {name:'Vanilleextrakt', amount:1, unit:'TL'},
+        {name:'Haselnusscreme', amount:80, unit:'g'},
+        {name:'weiße Schokolade', amount:150, unit:'g'},
+        {name:'dunkle Schokolade', amount:20, unit:'g'}
+      ],
+      steps:[
+        {text:'Drei Kinder-Bueno-Riegel in Stücke schneiden, einen weiteren für die Deko dritteln.'},
+        {text:'Kalte Sahne mit Puderzucker und Vanilleextrakt steif schlagen.'},
+        {text:'Haselnusscreme und ca. 50g geschmolzene, abgekühlte weiße Schokolade unterheben.'},
+        {text:'Die Hälfte der Mousse auf drei Förmchen verteilen.'},
+        {text:'Bueno-Stücke darauflegen und mit restlicher Mousse bedecken.'},
+        {text:'Restliche weiße Schokolade schmelzen und als Schicht darübergießen.'},
+        {text:'Dunkle Schokolade in Zickzack-Linien darauf spritzen und mit Bueno-Stück dekorieren.'},
+        {text:'Mindestens 30-60 Minuten kühlen, bis die Schicht fest und knackig ist.', timer:2700},
+        {text:'Tipp: Geschmolzene Schokolade vor der Verarbeitung auf Zimmertemperatur abkühlen lassen, damit die Sahne nicht schmilzt.'}
+      ]
+    },
+    {
+      id:'creamy-cajun-chicken-alfredo',
+      title:'Creamy Cajun Chicken Alfredo',
+      tags:['Pasta','Hähnchen'],
+      category:'Pasta',
+      minutes:35,
+      baseServings:2,
+      lastCooked:null,
+      colors:['#c0432b','#e3e6d3'],
+      image:'https://drive.google.com/uc?export=view&id=1ZtBkWxQtn1xWk72_5NFF-QJBcq_4QOhq',
+      nutrition:{kcal:920, protein:58, carbs:65, fat:48},
+      ingredients:[
+        {name:'Fettuccine', amount:250, unit:'g'},
+        {name:'Hähnchenbrust', amount:400, unit:'g'},
+        {name:'Cajun-Gewürz', amount:2, unit:'EL'},
+        {name:'Olivenöl', amount:1, unit:'EL'},
+        {name:'Butter', amount:2, unit:'EL'},
+        {name:'Schlagsahne', amount:250, unit:'ml'},
+        {name:'Parmesan, gerieben', amount:80, unit:'g'},
+        {name:'Petersilie', amount:1, unit:'EL'}
+      ],
+      steps:[
+        {text:'Fettuccine in Salzwasser al dente kochen.', timer:600},
+        {text:'Hähnchenbrust horizontal halbieren, sodass zwei flachere Schnitzel entstehen.'},
+        {text:'Hähnchen rundherum mit Cajun-Gewürz einreiben.'},
+        {text:'Öl und Butter in einer Pfanne erhitzen, Hähnchen von beiden Seiten goldbraun braten, dabei mit Bratbutter übergießen.', timer:600},
+        {text:'Hähnchen herausnehmen, kurz ruhen lassen, in Tranchen schneiden.'},
+        {text:'Sahne in dieselbe Pfanne geben und kurz aufkochen lassen.'},
+        {text:'Parmesan einrühren, bis eine cremige Alfredo-Sauce entsteht.'},
+        {text:'Nudeln in die Sauce geben und gründlich schwenken.'},
+        {text:'Hähnchen auf die Pasta betten, mit Petersilie und extra Parmesan bestreuen.'},
+        {text:'Tipp: Bei zu dickflüssiger Sauce etwas Nudelwasser unterrühren. Cajun-Mix idealerweise mit Paprika, Knoblauch, Zwiebel, Thymian, Oregano und Cayennepfeffer.'}
+      ]
+    },
+    {
+      id:'leche-frita',
+      title:'Leche Frita (Spanische frittierte Milch)',
+      tags:['Nachtisch','Spanisch'],
+      category:'Nachtisch',
+      minutes:60,
+      baseServings:6,
+      lastCooked:null,
+      colors:['#c9a25c','#d98a9c'],
+      nutrition:{kcal:310, protein:6, carbs:42, fat:13},
+      ingredients:[
+        {name:'Milch', amount:1000, unit:'ml'},
+        {name:'Zucker', amount:120, unit:'g'},
+        {name:'Zitronenschale', amount:1, unit:null},
+        {name:'Orangenschale', amount:1, unit:null},
+        {name:'Zimtstange', amount:1, unit:null},
+        {name:'Vanilleschote', amount:1, unit:null},
+        {name:'Speisestärke', amount:100, unit:'g'},
+        {name:'Ei, verquirlt', amount:2, unit:null},
+        {name:'Mehl (zum Panieren)', amount:50, unit:'g'},
+        {name:'Öl zum Frittieren', amount:300, unit:'ml'},
+        {name:'Zimt-Zucker-Mischung', amount:60, unit:'g'}
+      ],
+      steps:[
+        {text:'800ml Milch mit Zucker, Zitronen- und Orangenschale, Zimtstange und Vanille erhitzen.'},
+        {text:'Restliche 200ml kalte Milch mit der Speisestärke klumpenfrei anrühren.'},
+        {text:'Gewürze und Zitrusschalen aus der heißen Milch entfernen.'},
+        {text:'Stärkemilch unter Rühren einrühren, bis eine dicke, puddingartige Creme entsteht.'},
+        {text:'Masse in eine Form füllen, mit Folie abdecken, mindestens 3-4 Stunden kühlen.', timer:12600},
+        {text:'Feste Milchmasse in gleichmäßige Würfel schneiden.'},
+        {text:'Würfel in Stärke/Mehl wenden, dann durch verquirltes Ei ziehen.'},
+        {text:'In heißem Öl von allen Seiten goldbraun ausbacken, auf Küchenpapier abtropfen lassen.'},
+        {text:'Noch warm in Zimt-Zucker wälzen und lauwarm servieren.'},
+        {text:'Tipp: Klassisches Verhältnis ca. 90-100g Speisestärke auf 1 Liter Milch für die richtige Festigkeit.'}
+      ]
+    },
+    {
+      id:'low-calorie-protein-brookie',
+      title:'Low-Calorie Protein Brookie',
+      tags:['Proteinreich','Nachtisch'],
+      category:'Nachtisch',
+      minutes:35,
+      baseServings:8,
+      lastCooked:null,
+      colors:['#7a5a35','#c0432b'],
+      nutrition:{kcal:38, protein:4, carbs:3, fat:1},
+      ingredients:[
+        {name:'Proteinpulver (Schoko)', amount:60, unit:'g'},
+        {name:'Mehl', amount:60, unit:'g'},
+        {name:'Backpulver', amount:1, unit:'TL'},
+        {name:'Süßungsmittel', amount:30, unit:'g'},
+        {name:'Ei', amount:2, unit:null},
+        {name:'Magerquark oder Apfelmark', amount:150, unit:'g'},
+        {name:'Milch', amount:50, unit:'ml'},
+        {name:'Kakaopulver', amount:2, unit:'EL'},
+        {name:'Schokodrops', amount:30, unit:'g'}
+      ],
+      steps:[
+        {text:'Ofen auf 180°C vorheizen, kleine Backform mit Backpapier auslegen.'},
+        {text:'Trockene Zutaten (Proteinpulver, Mehl, Backpulver, Süßungsmittel) vermengen.'},
+        {text:'Feuchte Zutaten (Ei, Quark/Apfelmark, Milch) unterrühren, bis ein glatter Teig entsteht.'},
+        {text:'Einen Teil des Teigs mit Kakaopulver als Brownie-Basis in die Form füllen.'},
+        {text:'Restlichen hellen Teig klecksweise darauf verteilen und mit Schokodrops bestreuen.'},
+        {text:'Ca. 15-20 Minuten backen, bis durchgebacken, aber im Kern noch fudgy.', timer:1050},
+        {text:'Abkühlen lassen, in 8 Stücke schneiden.'},
+        {text:'Tipp: Nicht zu lange backen für eine saftige Konsistenz. Eine Whey/Casein-Mischung hält den Brookie saftiger.'}
+      ]
+    },
+    {
+      id:'lemon-posset-brulee',
+      title:'Lemon Posset Brûlée in der Zitronenschale',
+      tags:['Nachtisch'],
+      category:'Nachtisch',
+      minutes:35,
+      baseServings:6,
+      lastCooked:null,
+      colors:['#d4c531','#e8b98f'],
+      nutrition:{kcal:290, protein:2, carbs:25, fat:20},
+      ingredients:[
+        {name:'Zitronen', amount:6, unit:null},
+        {name:'Schlagsahne', amount:500, unit:'ml'},
+        {name:'Zucker', amount:130, unit:'g'},
+        {name:'Zucker zum Karamellisieren', amount:3, unit:'EL'}
+      ],
+      steps:[
+        {text:'Zitronen waschen und der Länge nach halbieren.'},
+        {text:'Fruchtfleisch herauskratzen, sodass saubere Zitronenschalen entstehen.'},
+        {text:'Fruchtfleisch durch ein Sieb pressen, um ca. 75-80ml Zitronensaft zu gewinnen.'},
+        {text:'Sahne und Zucker in einem Topf sanft aufkochen lassen.'},
+        {text:'Vom Herd nehmen und ca. 1 Minute abkühlen lassen.', timer:60},
+        {text:'Zitronensaft unter Rühren einfließen lassen, die Creme dickt an.'},
+        {text:'Masse in die Zitronenhälften gießen.'},
+        {text:'Über Nacht (mindestens 4-6 Stunden) im Kühlschrank fest werden lassen.', timer:16200},
+        {text:'Vor dem Servieren mit Zucker bestreuen und mit dem Flambierbrenner karamellisieren.'},
+        {text:'Tipp: Klassisches Verhältnis ca. 2 Teile Sahne zu 1 Teil Zucker und 1/4-1/3 Zitronensaft; kein Geliermittel nötig.'}
+      ]
+    },
+    {
+      id:'whole-lime-loaf-cake',
+      title:'Whole Lime Loaf Cake (Kuchen aus ganzen gekochten Limetten)',
+      tags:['Kuchen'],
+      category:'Kuchen',
+      minutes:90,
+      baseServings:8,
+      lastCooked:null,
+      colors:['#8a9a3f','#d4c531'],
+      nutrition:{kcal:340, protein:5, carbs:48, fat:15},
+      ingredients:[
+        {name:'Limetten (unbehandelt)', amount:2, unit:null},
+        {name:'Zucker', amount:200, unit:'g'},
+        {name:'Milch', amount:100, unit:'ml'},
+        {name:'Eier', amount:3, unit:null},
+        {name:'neutrales Öl', amount:120, unit:'ml'},
+        {name:'Vanilleextrakt', amount:1, unit:'TL'},
+        {name:'Mehl', amount:250, unit:'g'},
+        {name:'Backpulver', amount:2, unit:'TL'},
+        {name:'kalte Butter (Streifen)', amount:20, unit:'g'},
+        {name:'Puderzucker', amount:100, unit:'g'},
+        {name:'Limettensaft (für Glasur)', amount:2, unit:'EL'}
+      ],
+      steps:[
+        {text:'Limetten waschen und in kochendem Wasser ca. 10 Minuten kochen.', timer:600},
+        {text:'Gekochte Limetten in ein Rührgefäß geben.'},
+        {text:'Zucker, Milch, Eier und Öl dazugeben.'},
+        {text:'Alles mit dem Pürierstab gründlich mixen, bis eine homogene Masse entsteht.'},
+        {text:'Vanilleextrakt unterrühren.'},
+        {text:'Mehl und Backpulver darübersieben und vorsichtig unterheben.'},
+        {text:'Teig in eine Kastenform füllen und glattstreichen.'},
+        {text:'Einen Streifen kalte Butter mittig in den Teig stecken.'},
+        {text:'Bei 175°C ca. 40-50 Minuten backen (Stäbchenprobe).', timer:2700},
+        {text:'Aus Puderzucker und Limettensaft eine Glasur anrühren und über den abgekühlten Kuchen gießen.'},
+        {text:'Tipp: Unbedingt unbehandelte Bio-Limetten verwenden, da die Schale mitpüriert wird.'}
+      ]
+    },
+    {
+      id:'lemon-brulee',
+      title:'Lemon Brûlée (Zitronen-Crème-Brûlée in der Zitrone)',
+      tags:['Nachtisch'],
+      category:'Nachtisch',
+      minutes:30,
+      baseServings:6,
+      lastCooked:null,
+      colors:['#d4c531','#f4ded0'],
+      nutrition:{kcal:270, protein:2, carbs:22, fat:20},
+      ingredients:[
+        {name:'Zitronen', amount:4, unit:null},
+        {name:'Zucker', amount:110, unit:'g'},
+        {name:'Schlagsahne', amount:450, unit:'ml'},
+        {name:'brauner Zucker zum Karamellisieren', amount:3, unit:'EL'}
+      ],
+      steps:[
+        {text:'Drei Zitronen halbieren, Fruchtfleisch herausschälen, sodass 6 Schalen entstehen.'},
+        {text:'Fruchtfleisch durch ein Sieb pressen, um Zitronensaft aufzufangen.'},
+        {text:'Zucker, Abrieb der vierten Zitrone und Sahne in einem Topf vermischen.'},
+        {text:'Mischung leicht köcheln lassen, bis sie leicht reduziert ist.', timer:300},
+        {text:'Zitronensaft unter Rühren einfließen lassen, die Masse dickt sofort an.'},
+        {text:'Warme Creme in die Zitronenhälften füllen.'},
+        {text:'Mindestens 6 Stunden oder über Nacht im Kühlschrank fest werden lassen.', timer:21600},
+        {text:'Vor dem Servieren mit braunem Zucker bestreuen und karamellisieren.'},
+        {text:'Tipp: Ohne Flambierbrenner die Zitronen kurz unter den Ofengrill stellen (gut beobachten).'}
+      ]
+    },
+    {
+      id:'high-protein-chipotle-beef-burritos',
+      title:'High-Protein Chipotle Beef Burritos',
+      tags:['Rind','Proteinreich','Mexikanisch'],
+      category:'Hauptgericht',
+      minutes:35,
+      baseServings:6,
+      lastCooked:null,
+      colors:['#b5502e','#7a2f2a'],
+      nutrition:{kcal:340, protein:32, carbs:28, fat:9},
+      ingredients:[
+        {name:'Zwiebel', amount:1, unit:null},
+        {name:'rote Paprika', amount:1, unit:null},
+        {name:'grüne Paprika', amount:1, unit:null},
+        {name:'Knoblauchzehe', amount:2, unit:null},
+        {name:'mageres Rinderhackfleisch', amount:600, unit:'g'},
+        {name:'geräuchertes Paprikapulver', amount:1, unit:'TL'},
+        {name:'Kreuzkümmel', amount:1, unit:'TL'},
+        {name:'Chilipulver', amount:1, unit:'TL'},
+        {name:'Tomatenmark', amount:1, unit:'EL'},
+        {name:'Chipotle-Sauce', amount:2, unit:'EL'},
+        {name:'Limettensaft', amount:1, unit:'EL'},
+        {name:'Honig', amount:1, unit:'EL'},
+        {name:'Tortillas', amount:6, unit:null},
+        {name:'Käse, gerieben', amount:100, unit:'g'},
+        {name:'griechischer Joghurt', amount:100, unit:'g'},
+        {name:'Light-Mayonnaise', amount:1, unit:'EL'},
+        {name:'Chipotle in Adobo', amount:1, unit:'TL'}
+      ],
+      steps:[
+        {text:'Zwiebel und Paprika fein würfeln.'},
+        {text:'Gemüse in der Pfanne anbraten, bis weich, Knoblauch kurz mitdünsten.', timer:300},
+        {text:'Rinderhack an den Rand geben und anbraten.'},
+        {text:'Mit Paprika, Kreuzkümmel, Chilipulver, Knoblauch- und Zwiebelpulver, Salz und Pfeffer würzen.'},
+        {text:'Tomatenmark, Chipotle-Sauce, Limettensaft und Honig unterrühren und fertig garen.'},
+        {text:'Hackmischung auf 6 Tortillas verteilen, mit Käse bestreuen und zu Burritos rollen.'},
+        {text:'Burritos in der Pfanne von beiden Seiten goldbraun anbraten.', timer:300},
+        {text:'Für die Sauce Joghurt, Mayonnaise, Honig, Chipotle in Adobo und Wasser cremig rühren.'},
+        {text:'Burritos mit der Chipotle-Sauce servieren.'},
+        {text:'Tipp: Tortillas vor dem Rollen kurz in der Mikrowelle erwärmen, damit sie nicht reißen.'}
+      ]
+    },
+    {
+      id:'kubanische-coquitos-acaramelados',
+      title:'Kubanische Coquitos Acaramelados (Karamellisierte Kokosbällchen)',
+      tags:['Nachtisch'],
+      category:'Nachtisch',
+      minutes:40,
+      baseServings:12,
+      lastCooked:null,
+      colors:['#c9a25c','#8a5a2b'],
+      nutrition:{kcal:285, protein:4, carbs:39, fat:14},
+      ingredients:[
+        {name:'Kokosraspeln', amount:300, unit:'g'},
+        {name:'gezuckerte Kondensmilch', amount:200, unit:'g'},
+        {name:'Vanilleextrakt', amount:1, unit:'TL'},
+        {name:'Zucker (Karamell)', amount:150, unit:'g'},
+        {name:'Wasser', amount:50, unit:'ml'},
+        {name:'Zitronensaft', amount:1, unit:'TL'}
+      ],
+      steps:[
+        {text:'Kokosraspel, Kondensmilch und Vanilleextrakt in eine Pfanne geben.'},
+        {text:'Bei mittlerer Hitze ca. 5 Minuten einkochen, bis eine dicke Masse entsteht.', timer:300},
+        {text:'Masse auf Backpapier geben, flach drücken und im Kühlschrank abkühlen lassen.', timer:1800},
+        {text:'Hände einölen und die Masse in 12 Bällchen formen.'},
+        {text:'Zucker, Wasser und Zitronensaft aufkochen, bis eine Bernsteinfarbe entsteht, sofort von der Hitze nehmen.'},
+        {text:'Bällchen mit einem Zahnstocher zügig im Karamell wenden.'},
+        {text:'Auf Backpapier absetzen und aushärten lassen.'},
+        {text:'Tipp: Beim Karamellisieren nicht zu stark rühren, damit der Zucker nicht kristallisiert.'}
+      ]
+    },
+    {
+      id:'knoblauchbrot-garlic-cheese-bread',
+      title:'Knoblauchbrot mit geröstetem Knoblauch und Käse (Garlic Cheese Bread)',
+      tags:['Beilage'],
+      category:'Beilage',
+      minutes:30,
+      baseServings:4,
+      lastCooked:null,
+      colors:['#d4a531','#e3e6d3'],
+      nutrition:{kcal:450, protein:15, carbs:38, fat:26},
+      ingredients:[
+        {name:'Knoblauchzehen', amount:8, unit:null},
+        {name:'Olivenöl', amount:3, unit:'EL'},
+        {name:'Butter, weich', amount:100, unit:'g'},
+        {name:'Chiliflocken', amount:0.5, unit:'TL'},
+        {name:'Petersilie, gehackt', amount:2, unit:'EL'},
+        {name:'Baguette oder Ciabatta', amount:1, unit:null},
+        {name:'Mozzarella, gerieben', amount:200, unit:'g'},
+        {name:'Salz & Pfeffer', amount:0, unit:'nach Bedarf'}
+      ],
+      steps:[
+        {text:'Knoblauchzehen in Olivenöl bei niedriger Hitze goldbraun und weich anbraten.', timer:600},
+        {text:'Gerösteten Knoblauch mit warmem Öl zur weichen Butter geben.'},
+        {text:'Salz, Pfeffer, Chiliflocken und Petersilie zerdrücken und zu einer Knoblauchbutter vermengen.'},
+        {text:'Brot längs halbieren und auf ein Backblech legen.'},
+        {text:'Knoblauchbutter gleichmäßig auf beiden Hälften verstreichen.'},
+        {text:'Großzügig mit Käse bestreuen.'},
+        {text:'Bei 180-200°C ca. 10-15 Minuten backen, bis der Käse geschmolzen und goldbraun ist.', timer:750},
+        {text:'Mit Petersilie bestreuen, in Streifen schneiden und heiß servieren.'},
+        {text:'Tipp: Knoblauch bei geringer Hitze langsam confieren, damit er nicht bitter wird.'}
+      ]
+    },
+    {
+      id:'fluffiges-naan-brot',
+      title:'Fluffiges selbstgemachtes Naan-Brot (mit Knoblauchbutter)',
+      tags:['Backwaren','Indisch'],
+      category:'Beilage',
+      minutes:110,
+      baseServings:6,
+      lastCooked:null,
+      colors:['#e3e6d3','#d4a531'],
+      nutrition:{kcal:285, protein:7, carbs:40, fat:10},
+      ingredients:[
+        {name:'lauwarmes Wasser', amount:120, unit:'ml'},
+        {name:'griechischer Joghurt', amount:100, unit:'g'},
+        {name:'Zucker', amount:1, unit:'TL'},
+        {name:'Trockenhefe', amount:7, unit:'g'},
+        {name:'Butter, geschmolzen', amount:2, unit:'EL'},
+        {name:'Mehl', amount:400, unit:'g'},
+        {name:'Salz', amount:1, unit:'TL'},
+        {name:'Knoblauchbutter zum Bestreichen', amount:3, unit:'EL'}
+      ],
+      steps:[
+        {text:'Wasser, Joghurt, Zucker, Hefe und abgekühlte Butter verrühren.'},
+        {text:'Mehl und Salz hinzufügen und grob vermengen.'},
+        {text:'Zu einem weichen, elastischen Teig kneten.'},
+        {text:'Schüssel einölen, Teig hineinlegen, abdecken und ca. 1 Stunde gehen lassen, bis sich das Volumen verdoppelt hat.', timer:3600},
+        {text:'Teig in 6 Portionen teilen, zu Kugeln formen und 15-20 Minuten ruhen lassen.', timer:1050},
+        {text:'Pfanne sehr heiß vorheizen.'},
+        {text:'Teigkugeln dünn zu Fladen ausrollen.'},
+        {text:'Fladen in der trockenen, heißen Pfanne ca. 2 Minuten backen, bis Blasen entstehen, wenden und weitere 1-2 Minuten backen.', timer:180},
+        {text:'Mit einem Tuch abdecken, damit das Naan weich bleibt.'},
+        {text:'Warm mit Knoblauchbutter bestreichen und servieren.'},
+        {text:'Tipp: Die Pfanne muss wirklich sehr heiß sein und ohne zusätzliches Fett verwendet werden, damit Blasen entstehen.'}
+      ]
+    },
+    {
+      id:'korean-popcorn-chicken',
+      title:'Korean Popcorn Chicken',
+      tags:['Hähnchen','Asiatisch'],
+      category:'Hauptgericht',
+      minutes:40,
+      baseServings:3,
+      lastCooked:null,
+      colors:['#c0432b','#d4a531'],
+      nutrition:{kcal:580, protein:42, carbs:38, fat:28},
+      ingredients:[
+        {name:'Hähnchenbrust, gewürfelt', amount:500, unit:'g'},
+        {name:'Salz', amount:1, unit:'TL'},
+        {name:'Paprikapulver', amount:1, unit:'TL'},
+        {name:'Knoblauchpulver', amount:1, unit:'TL'},
+        {name:'Speisestärke', amount:80, unit:'g'},
+        {name:'Eier', amount:2, unit:null},
+        {name:'Öl zum Frittieren', amount:500, unit:'ml'},
+        {name:'Butter', amount:2, unit:'EL'},
+        {name:'Knoblauchzehe, gehackt', amount:3, unit:null},
+        {name:'Ketchup', amount:3, unit:'EL'},
+        {name:'Gochujang', amount:2, unit:'EL'},
+        {name:'Sojasauce', amount:2, unit:'EL'},
+        {name:'brauner Zucker', amount:2, unit:'EL'},
+        {name:'Honig', amount:1, unit:'EL'},
+        {name:'Sesam, geröstet', amount:1, unit:'EL'},
+        {name:'Frühlingszwiebel', amount:1, unit:null}
+      ],
+      steps:[
+        {text:'Hähnchen würfeln, mit Salz, Paprika und Knoblauchpulver würzen.'},
+        {text:'Speisestärke und Eier zugeben und gründlich vermengen.'},
+        {text:'Öl erhitzen (ca. 170-180°C) und Hähnchen portionsweise goldbraun ausbacken, abtropfen lassen.', timer:480},
+        {text:'Butter in einer zweiten Pfanne schmelzen, gehackten Knoblauch kurz anbraten.'},
+        {text:'Ketchup, Gochujang, Sojasauce, Zucker und Honig zugeben, kurz aufkochen, bis die Sauce eindickt.', timer:180},
+        {text:'Frittiertes Hähnchen in die Sauce geben und durchschwenken.'},
+        {text:'Mit Sesam und Frühlingszwiebeln bestreuen, auf Reis servieren.'},
+        {text:'Tipp: Für extra Knusprigkeit "Double Frying" anwenden – vorfrittieren, kurz ruhen lassen, dann bei höherer Hitze nachfrittieren.'}
+      ]
+    },
+    {
+      id:'zimt-zupfbrot',
+      title:'Zimt-Zupfbrot',
+      tags:['Backwaren','Nachtisch'],
+      category:'Kuchen',
+      minutes:150,
+      baseServings:8,
+      lastCooked:null,
+      colors:['#c9a25c','#b5502e'],
+      nutrition:{kcal:420, protein:7, carbs:62, fat:16},
+      ingredients:[
+        {name:'Hefeteig (Mehl, Milch, Hefe, Zucker, Ei, Butter)', amount:600, unit:'g'},
+        {name:'Butter, weich', amount:100, unit:'g'},
+        {name:'brauner Zucker', amount:120, unit:'g'},
+        {name:'Zimt', amount:2, unit:'EL'},
+        {name:'Frischkäse', amount:100, unit:'g'},
+        {name:'Puderzucker', amount:80, unit:'g'},
+        {name:'Milch', amount:2, unit:'EL'}
+      ],
+      steps:[
+        {text:'Süßen Hefeteig zubereiten, gut kneten und an einem warmen Ort gehen lassen, bis er sich verdoppelt hat.', timer:3600},
+        {text:'Weiche Butter mit braunem Zucker und Zimt zu einer Paste verrühren.'},
+        {text:'Teig rechteckig ausrollen und mit der Zimt-Zucker-Masse bestreichen.'},
+        {text:'Teig in gleichmäßige Quadrate schneiden.'},
+        {text:'Quadrate stapeln und hochkant in eine Kastenform setzen.'},
+        {text:'Abgedeckt nochmals 20-30 Minuten gehen lassen.', timer:1500},
+        {text:'Bei 180°C ca. 30-35 Minuten goldbraun backen.', timer:1950},
+        {text:'Frischkäse, Puderzucker und Milch glattrühren.'},
+        {text:'Warmes Zupfbrot mit dem Frosting beträufeln und auseinanderzupfen.'},
+        {text:'Tipp: Ein weicher Brioche- oder Milchbrotteig funktioniert am besten; bei zu schneller Bräunung mit Alufolie abdecken.'}
+      ]
+    },
+    {
+      id:'aperol-spritz-pie',
+      title:'Aperol Spritz Pie',
+      tags:['Nachtisch','Party'],
+      category:'Nachtisch',
+      minutes:60,
+      baseServings:8,
+      lastCooked:null,
+      colors:['#e8974a','#f4ded0'],
+      nutrition:{kcal:290, protein:4, carbs:36, fat:9},
+      ingredients:[
+        {name:'Mürbeteig', amount:1, unit:null},
+        {name:'Gelatine', amount:12, unit:'g'},
+        {name:'Prosecco', amount:400, unit:'ml'},
+        {name:'Aperol', amount:300, unit:'ml'},
+        {name:'Sodawasser', amount:300, unit:'ml'},
+        {name:'Zucker', amount:60, unit:'g'},
+        {name:'Eiweiß', amount:2, unit:null},
+        {name:'Zucker (Meringue)', amount:100, unit:'g'}
+      ],
+      steps:[
+        {text:'Mürbeteig ausrollen, in eine Pieform legen und blindbacken bis goldbraun, abkühlen lassen.', timer:1500},
+        {text:'Gelatine in kaltem Wasser einweichen.'},
+        {text:'Einen Teil des Proseccos mit Zucker erwärmen, Gelatine darin auflösen.'},
+        {text:'Restlichen Prosecco, Aperol und Sodawasser unterrühren (ca. 1 Liter Flüssigkeit gesamt).'},
+        {text:'Flüssigkeit vorsichtig in den vorgebackenen Boden gießen.'},
+        {text:'Mindestens 4-6 Stunden (besser über Nacht) im Kühlschrank fest werden lassen.', timer:18000},
+        {text:'Eiweiß mit Zucker steif schlagen.'},
+        {text:'Baiser dekorativ auf die Pie spritzen und mit dem Flambierbrenner abflämmen.'},
+        {text:'Tipp: Nur einen kleinen Teil der Flüssigkeit erwärmen, um Alkoholgehalt und Aroma zu erhalten.'}
+      ]
+    },
+    {
+      id:'klassisches-tiramisu-della-nonna',
+      title:'Klassisches Tiramisù della Nonna',
+      tags:['Nachtisch','Italienisch','Klassiker'],
+      category:'Nachtisch',
+      minutes:270,
+      baseServings:6,
+      lastCooked:null,
+      colors:['#7a5a35','#c9a25c'],
+      nutrition:{kcal:560, protein:7, carbs:42, fat:40},
+      ingredients:[
+        {name:'Eigelb', amount:4, unit:null},
+        {name:'Zucker', amount:100, unit:'g'},
+        {name:'Mascarpone', amount:500, unit:'g'},
+        {name:'Espresso, kalt', amount:300, unit:'ml'},
+        {name:'Löffelbiskuits', amount:250, unit:'g'},
+        {name:'Kakaopulver', amount:2, unit:'EL'}
+      ],
+      steps:[
+        {text:'Eigelb mit Zucker cremig weiß aufschlagen.'},
+        {text:'Mascarpone hinzugeben und zu einer samtigen Creme rühren.'},
+        {text:'Kaffee in eine flache Schale gießen.'},
+        {text:'Löffelbiskuits kurz im Kaffee wenden und den Boden einer Form damit auslegen.'},
+        {text:'Die Hälfte der Mascarponecreme darauf verstreichen.'},
+        {text:'Zweite Schicht getränkte Biskuits darauflegen und mit restlicher Creme abschließen.'},
+        {text:'Abgedeckt mindestens 4 Stunden, am besten über Nacht, kühlen.', timer:14400},
+        {text:'Vor dem Servieren großzügig mit Kakaopulver bestäuben.'},
+        {text:'Tipp: Löffelbiskuits nur ganz kurz in den Kaffee tauchen, damit sie nicht matschig werden.'}
+      ]
+    },
   ];
 
   const IMPORT_SAMPLES = [
@@ -901,8 +1758,8 @@
     const wide = opts.wide;
     const meta = opts.metaOverride || `${r.minutes} Min <span class="dot"></span> ${r.tags[0] || r.category}`;
     return `<button class="dish-card ${wide?'wide':'grid-card'}" data-action="open" data-id="${r.id}">
-      <span class="swatch" style="background:linear-gradient(135deg, ${r.colors[0]}, ${r.colors[1]})">
-        ${swatch(r.id+'-'+(wide?'w':'g'), r.colors[0], r.colors[1])}
+      <span class="swatch" style="background:${swatchBg(r)}">
+        ${swatchInner(r, r.id+'-'+(wide?'w':'g'))}
         <span class="tag">${r.category}</span>
       </span>
       <span class="dish-body">
@@ -1026,8 +1883,8 @@
     const servings = servingsFor(r);
     return `
       <div class="detail-hero">
-        <span class="swatch" style="background:linear-gradient(135deg, ${r.colors[0]}, ${r.colors[1]}); height:220px;">
-          ${swatch(r.id+'-hero', r.colors[0], r.colors[1])}
+        <span class="swatch" style="background:${swatchBg(r)}; height:220px;">
+          ${swatchInner(r, r.id+'-hero')}
         </span>
         <div class="hero-fade"></div>
         <div class="hero-title">
