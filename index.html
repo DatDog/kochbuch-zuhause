@@ -381,7 +381,7 @@
     display:flex; gap:12px; align-items:flex-start; width:100%; text-align:left;
     background:var(--card); border:1px solid var(--line); border-radius:16px; padding:13px 14px; margin-top:10px; cursor:pointer;
   }
-  .import-opt .ic{width:36px; height:36px; border-radius:11px; background:var(--accent-soft); color:var(--accent-strong); display:flex; align-items:center; justify-content:center; flex:0 0 auto;}
+  .import-opt .icx�width:36px; height:36px; border-radius:11px; background:var(--accent-soft); color:var(--accent-strong); display:flex; align-items:center; justify-content:center; flex:0 0 auto;}
   .import-opt .ic svg{width:18px; height:18px;}
   .import-opt strong{display:block; font-size:14px; font-weight:600; margin-bottom:2px;}
   .import-opt span{font-size:12px; color:var(--ink-soft); line-height:1.4;}
@@ -396,12 +396,12 @@
 
   .loading-row{display:flex; align-items:center; gap:10px; padding:20px 4px; color:var(--ink-soft); font-size:13.5px;}
   .spinner{width:18px; height:18px; border-radius:50%; border:2.5px solid var(--line); border-top-color:var(--accent); animation:spin .7s linear infinite;}
-  @keyframes spin{to{transform:rotate(360deg);}}
+  @keyframes spin{i�o{transform:rotate(360deg);}}
   @media (prefers-reduced-motion:reduce){ .spinner{animation:spin 1.4s linear infinite;} }
 
   .preview-card{border:1px solid var(--accent); border-radius:16px; overflow:hidden; margin-top:8px;}
   .preview-card .ph{padding:12px 14px 14px;}
-  .preview-note{display:flex; gap:8px; align-items:center; font-size:12px; color:var(--accent-strong); font-weight:600; margin-bottom:6px;}
+  .preview-note{ display:flex; gap:8px; align-items:center; font-size:12px; color:var(--accent-strong); font-weight:600; margin-bottom:6px;}
   .preview-note svg{width:14px; height:14px;}
 
   .toast{
@@ -623,22 +623,22 @@
       baseServings:1,
       lastCooked:null,
       colors:['#d4a531','#7a5a35'],
-      image:'https://drive.google.com/uc?export=view&id=1N1wdoe2XcWSl_L9FVrSJKC07Q4DIqZwH',
+      image:'https://drive.google.com/thumbnail?id=1N1wdoe2XcWSl_L9FVrSJKC07Q4DIqZwH&sz=w1000',
       nutrition:{kcal:780, protein:22, carbs:75, fat:44},
       ingredients:[
-        {name:'Kartoffel', amount:1, unit:null},
-        {name:'Öl zum Braten', amount:1, unit:'EL'},
-        {name:'Zwiebel', amount:0.5, unit:null},
-        {name:'Knoblauchzehe', amount:1, unit:null},
-        {name:'Walnüsse, gehackt', amount:20, unit:'g'},
-        {name:'Tomatenmark', amount:1, unit:'TL'},
-        {name:'große Tortilla', amount:1, unit:null},
-        {name:'kleine Tortilla', amount:1, unit:null},
-        {name:'Käse, gerieben', amount:40, unit:'g'},
-        {name:'Schmand oder saure Sahne', amount:2, unit:'EL'},
-        {name:'Salat, in Streifen', amount:30, unit:'g'},
-        {name:'Tomate, gewürfelt', amount:0.5, unit:null},
-        {name:'Salz & Pfeffer', amount:0, unit:'nach Bedarf'}
+        {name:'große Kartoffel', amount:1, unit:'Stück'},
+        {name:'kleine Zwiebel', amount:1, unit:'Stück'},
+        {name:'Knoblauch', amount:1, unit:'Zehe'},
+        {name:'Walnüsse', amount:40, unit:'g'},
+        {name:'Tomatenmark', amount:1, unit:'EL'},
+        {name:'Pflanzenöl zum Braten', amount:2, unit:'EL'},
+        {name:'große Weizentortilla', amount:1, unit:'Stück'},
+        {name:'kleine Weizentortilla (oder Kreis aus Tortilla geschnitten)', amount:1, unit:'Stück'},
+        {name:'geriebener Käse', amount:40, unit:'g'},
+        {name:'Schmand oder Saure Sahne', amount:2, unit:'EL'},
+        {name:'Eisbergsalat (in feine Streifen geschnitten)', amount:1, unit:'Handvoll'},
+        {name:'Tomate (fein gewürfelt)', amount:0.5, unit:'Stück'},
+        {name:'Salz und Pfeffer', amount:1, unit:'Prise'}
       ],
       steps:[
         {text:'Kartoffel grob reiben, mit den Händen und in einem Küchentuch gründlich ausdrücken.'},
@@ -663,12 +663,13 @@
       colors:['#d4a531','#8a9a3f'],
       nutrition:{kcal:290, protein:7, carbs:46, fat:9},
       ingredients:[
-        {name:'starkes Weizenmehl (Tipo 00 / 550)', amount:500, unit:'g'},
-        {name:'Wasser', amount:430, unit:'ml'},
-        {name:'Trockenhefe', amount:7, unit:'g'},
-        {name:'Salz', amount:12, unit:'g'},
-        {name:'Olivenöl (im Teig & zum Beträufeln)', amount:60, unit:'ml'},
-        {name:'grobes Meersalz', amount:0, unit:'nach Bedarf'}
+        {name:'Starkes Weizenmehl (z.B. Tipo 00, Type 550 oder Brotmehl)', amount:500, unit:'g'},
+        {name:'Lauwarmes Wasser (entspricht 86% Hydratation, aufgeteilt)', amount:430, unit:'ml'},
+        {name:'Trockenhefe (oder ca. 12 g frische Hefe)', amount:4, unit:'g'},
+        {name:'Feines Meersalz', amount:10, unit:'g'},
+        {name:'Natives Olivenöl extra (für den Teig)', amount:40, unit:'ml'},
+        {name:'Natives Olivenöl extra (für Form und Teigoberfläche)', amount:4, unit:'EL'},
+        {name:'Grobes Meersalz / Meersalzflocken zum Bestreuen', amount:1, unit:'Prise'}
       ],
       steps:[
         {text:'Autolyse: Mehl mit dem Großteil des Wassers (ca. 380 ml) grob vermengen, bis kein trockenes Mehl mehr sichtbar ist. 30 Minuten abgedeckt ruhen lassen.', timer:1800},
@@ -680,7 +681,7 @@
         {text:'In der Form ca. 1 Stunde zur Stückgare ruhen lassen, bis der Teig fluffig ist und die Form ausfüllt.', timer:3600},
         {text:'Oberfläche mit Olivenöl beträufeln, Dimples eindrücken. 15 Minuten warten, ein zweites Mal eindrücken (Double Dimple).', timer:900},
         {text:'Mit grobem Meersalz bestreuen und bei 220–230°C ca. 22–25 Minuten goldbraun backen.', timer:1380},
-        {text:'Tipp: Proteinreiches Mehl (Tipo 00 oder Manitoba) sorgt für einen stabileren Teig bei der hohen Hydratation. Mengen für Mehl, Hefe, Salz und Öl wurden anhand von Standard-Focaccia-Rezepten geschätzt, da im Originalvideo nur die Hydratationsrate genannt wurde.'}
+        {text:'Tipp: Proteinreiches Mehl (Tipo 00 oder Manitoba) sorgt für einen stabileren Teig bei der hohen Hydratation. Mengen für Mehl, Hefe, Salz und Öl wurden anhand von Standard-Focaccia-Rezepten geschätzt, da im Originalvideo nur die Hydrationsrate genannt wurde.'}
       ]
     },
     {
@@ -692,22 +693,24 @@
       baseServings:2,
       lastCooked:null,
       colors:['#d4a531','#b5502e'],
-      image:'https://drive.google.com/uc?export=view&id=1xbdPACh813q7sf9vpdCO5KEwamhTTUnA',
+      image:'https://drive.google.com/thumbnail?id=1xbdPACh813q7sf9vpdCO5KEwamhTTUnA&sz=w1000',
       nutrition:{kcal:620, protein:38, carbs:65, fat:22},
       ingredients:[
-        {name:'Hähnchenoberschenkelfleisch', amount:400, unit:'g'},
-        {name:'Speisestärke', amount:2, unit:'EL'},
-        {name:'Pflanzenöl (zum Braten)', amount:100, unit:'ml'},
-        {name:'Butter', amount:1, unit:'EL'},
+        {name:'Hähnchenoberkeulenfleisch (ohne Haut & Knochen), in mundgerechte Stücke geschnitten', amount:400, unit:'g'},
+        {name:'Salz', amount:1, unit:'Prise'},
+        {name:'Schwarzer Pfeffer', amount:1, unit:'Prise'},
+        {name:'Pflanzenöl (für die Marinade)', amount:1, unit:'TL'},
+        {name:'Speisestärke (Maisstärk))', amount:3, unit:'EL'},
         {name:'Honig', amount:4, unit:'EL'},
         {name:'Sojasauce', amount:3, unit:'EL'},
-        {name:'Mirin', amount:1, unit:'EL'},
-        {name:'Knoblauchzehe, gehackt', amount:3, unit:null},
-        {name:'Chiliflocken', amount:1, unit:'TL'},
+        {name:'Mirin (süßer Reiswein)', amount:2, unit:'EL'},
+        {name:'Knoblauch, fein gehackt', amount:3, unit:'Zehen'},
+        {name:'Chiliflocken', amount:0.5, unit:'TL'},
         {name:'Wasser', amount:2, unit:'EL'},
-        {name:'Reis, gekocht', amount:300, unit:'g'},
-        {name:'Frühlingszwiebel', amount:1, unit:null},
-        {name:'Salz & Pfeffer', amount:0, unit:'nach Bedarf'}
+        {name:'Butter', amount:2, unit:'EL'},
+        {name:'Pflanzenöl zum flachen Braten/Frittieren', amount:100, unit:'ml'},
+        {name:'Frühlingszwiebel, in Ringen (zum Garnieren)', amount:1, unit:'Stange'},
+        {name:'Gekochter Reis (zum Servieren)', amount:2, unit:'Portionen'}
       ],
       steps:[
         {text:'Für die Sauce Honig, Sojasauce, Mirin, gehackten Knoblauch, Chiliflocken und Wasser gründlich verrühren.'},
@@ -729,26 +732,30 @@
       baseServings:10,
       lastCooked:null,
       colors:['#b5502e','#e8974a'],
-      image:'https://drive.google.com/uc?export=view&id=1GkveNd2Yv47qjNN-qULV5zg5vorQ52IR',
+      image:'https://drive.google.com/thumbnail?id=1GkveNd2Yv47qjNN-qULV5zg5vorQ52IR&sz=w1000',
       nutrition:{kcal:425, protein:50, carbs:38, fat:8},
       ingredients:[
-        {name:'Hähnchenbrust', amount:800, unit:'g'},
-        {name:'Knoblauchsalz', amount:2, unit:'TL'},
-        {name:'geräucherte Paprika', amount:1, unit:'TL'},
-        {name:'Ranch-Gewürz', amount:1, unit:'EL'},
-        {name:'schwarzer Pfeffer', amount:1, unit:'TL'},
-        {name:'Salsa', amount:100, unit:'g'},
-        {name:'Zwiebel, gewürfelt', amount:1, unit:null},
-        {name:'Buffalo Sauce', amount:200, unit:'ml'},
-        {name:'körniger Frischkäse', amount:150, unit:'g'},
-        {name:'Frischkäse', amount:150, unit:'g'},
-        {name:'Zwiebelpulver', amount:1, unit:'TL'},
-        {name:'fettarme Milch', amount:100, unit:'ml'},
-        {name:'Mozzarella, gerieben', amount:150, unit:'g'},
-        {name:'Schnittlauch', amount:1, unit:'Bund'},
-        {name:'Self-Rising Flour', amount:400, unit:'g'},
-        {name:'griechischer Joghurt', amount:400, unit:'g'},
-        {name:'italienische Kräuter', amount:1, unit:'TL'}
+        {name:'Hähnchenbrust', amount:1135, unit:'g'},
+        {name:'Knoblauchsalz (für Hähnchen)', amount:7, unit:'g'},
+        {name:'Geräuchertes Paprikapulver', amount:3, unit:'g'},
+        {name:'Ranch-Gewürzpulver (Ranch Seasoning)', amount:8, unit:'g'},
+        {name:'Schwarzer Pfeffer (für Hähnchen)', amount:3, unit:'g'},
+        {name:'Tomatensalsa', amount:60, unit:'g'},
+        {name:'Weiße Zwiebeln, gewürfelt', amount:100, unit:'g'},
+        {name:'Buffalo Sauce (für Hähnchen)', amount:120, unit:'g'},
+        {name:'Körniger Frischkäse / Hüttenkäse', amount:335, unit:'g'},
+        {name:'Frischkäse (fettreduziert, ca. 1/3 Fett)', amount:56, unit:'g'},
+        {name:'Knoblauchsalz (für Sauce)', amount:7, unit:'g'},
+        {name:'Schwarzer Pfeffer (für Sauce)', amount:3, unit:'g'},
+        {name:'Zwiebelpulver', amount:3, unit:'g'},
+        {name:'Buffalo Sauce (für Sauce)', amount:120, unit:'g'},
+        {name:'Fettarme Milch', amount:60, unit:'g'},
+        {name:'Geriebener Mozzarella (fettreduziert, für Füllung und zum Belegen)', amount:150, unit:'g'},
+        {name:'Frischer Schnittlauch, fein gehackt', amount:2, unit:'EL'},
+        {name:'Self-Rising Flour (selbsttreibendes Mehl)', amount:500, unit:'g'},
+        {name:'Griechischer Joghurt (0% Fett)', amount:520, unit:'g'},
+        {name:'Knoblauchsalz (für Teig)', amount:15, unit:'g'},
+        {name:'Italienische Kräutermischung (getrocknet)', amount:8, unit:'g'}
       ],
       steps:[
         {text:'Hähnchenbrust mit Knoblauchsalz, Paprika, Ranch-Gewürz, Pfeffer, Salsa, Zwiebelwürfeln und Buffalo Sauce im Slow Cooker auf hoher Stufe 2-3 Stunden schmoren lassen.', timer:9000},
@@ -758,7 +765,7 @@
         {text:'Teig in 10 Kugeln teilen, jede dünn ausrollen und mit Hähnchenfüllung sowie etwas Mozzarella füllen.'},
         {text:'Ränder zusammendrücken und verschließen, sodass gefüllte Taschen entstehen.'},
         {text:'In gefetteter, heißer Pfanne mit Deckel von beiden Seiten goldbraun anbraten, bis Teig gar und Käse geschmolzen ist.', timer:600},
-        {text:'Optional portionsweise einfrieren und in der Heißluftfritteuse, Pfanne oder Mikrowelle aufwärmen.'},
+        {text:'Optional portionsweise einfrieren und in der Heißluftfritteuse, Pfanne oder Mikrowelle aufwarmen.'},
         {text:'Tipp: Beim Anbraten unbedingt einen Deckel verwenden, damit der Teig innen durchbackt. Die Mozzarella-Menge wurde auf ca. 150g geschätzt.'}
       ]
     },
@@ -771,21 +778,23 @@
       baseServings:8,
       lastCooked:null,
       colors:['#c0432b','#d4a531'],
-      image:'https://drive.google.com/uc?export=view&id=1zq7kQpr_PL_3LSYpM9DMIPO8vZNCt4IB',
+      image:'https://drive.google.com/thumbnail?id=1zq7kQpr_PL_3LSYpM9DMIPO8vZNCt4IB&sz=w1000',
       nutrition:{kcal:380, protein:32, carbs:38, fat:10},
       ingredients:[
-        {name:'Hähnchenbrust, gewürfelt', amount:700, unit:'g'},
-        {name:'Zwiebel', amount:1, unit:null},
-        {name:'rote Paprika', amount:1, unit:null},
-        {name:'Cajun-Gewürz', amount:3, unit:'EL'},
-        {name:'griechischer Joghurt', amount:100, unit:'g'},
-        {name:'leichte Mayonnaise', amount:2, unit:'EL'},
-        {name:'Hot Sauce', amount:1, unit:'EL'},
-        {name:'Zitronensaft', amount:1, unit:'EL'},
+        {name:'Zwiebel', amount:1, unit:'Stück'},
+        {name:'Paprikaschoten (z.B. rot und grün)', amount:2, unit:'Stück'},
+        {name:'Hähnchenoberschenkel-Filet (ohne Haut & Knochen, gewürfelt)', amount:700, unit:'g'},
+        {name:'Cajun-Gewürzmischung (für das Hähnchen)', amount:2, unit:'EL'},
+        {name:'Magerer griechischer Joghurt (3/4 Cup)', amount:170, unit:'g'},
+        {name:'Leichte Mayonnaise', amount:2, unit:'EL'},
+        {name:'Hot Sauce (z.B. Sriracha oder Frank\'s RedHot)', amount:1, unit:'EL'},
+        {name:'Zitrone (Saft davon)', amount:0.5, unit:'Stück'},
+        {name:'Cajun-Gewürzmischung (für die Sauce)', amount:1, unit:'TL'},
         {name:'Knoblauchpulver', amount:1, unit:'TL'},
-        {name:'Jasminreis, gekocht', amount:400, unit:'g'},
-        {name:'Tortilla-Wraps', amount:8, unit:null},
-        {name:'Öl zum Braten', amount:1, unit:'EL'}
+        {name:'Wasser (zum Verdünnen der Sauce)', amount:2, unit:'EL'},
+        {name:'Gekochter Jasmin-Reis (ca. 2 Cups)', amount:300, unit:'g'},
+        {name:'Kalorienarme Tortilla-Wraps', amount:8, unit:'Stück'},
+        {name:'Öl oder Kochspray (für die Pfanne)', amount:1, unit:'TL'}
       ],
       steps:[
         {text:'Zwiebel und Paprika in kleine Würfel schneiden.'},
@@ -807,23 +816,24 @@
       baseServings:10,
       lastCooked:null,
       colors:['#e8974a','#8a9a3f'],
-      image:'https://drive.google.com/uc?export=view&id=1v3cxZUb2mpZCThkX_T8qqbrtM5B_zxcv',
+      image:'https://drive.google.com/thumbnail?id=1v3cxZUb2mpZCThkX_T8qqbrtM5B_zxcv&sz=w1000',
       nutrition:{kcal:423, protein:41, carbs:25, fat:18},
       ingredients:[
-        {name:'Hähnchenbrust, gewürfelt', amount:900, unit:'g'},
-        {name:'Salz', amount:1, unit:'TL'},
-        {name:'Chiliflocken', amount:1, unit:'TL'},
-        {name:'Petersilie, gehackt', amount:2, unit:'EL'},
-        {name:'italienische Kräuter', amount:1, unit:'EL'},
-        {name:'Paprikapulver', amount:1, unit:'EL'},
-        {name:'Knoblauch, gepresst', amount:3, unit:'Zehen'},
-        {name:'Olivenöl', amount:2, unit:'EL'},
-        {name:'Parmesan, gerieben', amount:80, unit:'g'},
-        {name:'leichte Butter', amount:2, unit:'EL'},
-        {name:'Kondensmilch (Evaporated Milk)', amount:200, unit:'ml'},
-        {name:'leichter Frischkäse', amount:100, unit:'g'},
-        {name:'Low-Carb Tortillas', amount:10, unit:null},
-        {name:'Salat, Zwiebeln, Tomaten', amount:1, unit:'nach Bedarf'}
+        {name:'Hähnchenbrust und Hähnchenschenkelfleisch (gewürfelt)', amount:1200, unit:'g'},
+        {name:'Olivenöl', amount:1, unit:'EL'},
+        {name:'Parmesan (gerieben, für Hähnchenmarinate)', amount:50, unit:'g'},
+        {name:'Gewürzmischung (Salz, Chiliflocken, getrocknete Petersilie, italienische Kräuter, Paprikapulver, Knoblauchpulver)', amount:1, unit:'EL'},
+        {name:'Avocado-Ölspray (oder normales Ölspray)', amount:1, unit:'TL'},
+        {name:'Parmesan & frische Petersilie (zum Garnieren nach dem Backen)', amount:20, unit:'g'},
+        {name:'Leichte Butter', amount:15, unit:'g'},
+        {name:'Gewürze für Sauce (Italienische Kräuter, Knoblauchpulver, Paprikapulver)', amount:1, unit:'TL'},
+        {name:'Kondensmilch (Evaporated Milk, ungesüßt / fettarm)', amount:200, unit:'ml'},
+        {name:'Parmesan (gerieben, für die Sauce)', amount:50, unit:'g'},
+        {name:'Leichter Frischkäse / Cream Cheese', amount:40, unit:'g'},
+        {name:'Low-Carb Tortilla-Wraps', amount:10, unit:'Stück'},
+        {name:'Eisbergsalat (in Streifen)', amount:150, unit:'g'},
+        {name:'Rote Zwiebel (gewürfelt)', amount:1, unit:'Stück'},
+        {name:'Tomaten (gewürfelt)', amount:2, unit:'Stück'}
       ],
       steps:[
         {text:'Hähnchen würfeln, mit Salz, Chiliflocken, Petersilie, Kräutern, Paprika, Knoblauch, Öl und Parmesan marinieren.'},
@@ -844,12 +854,12 @@
       baseServings:20,
       lastCooked:null,
       colors:['#7a5a35','#c9a25c'],
-      image:'https://drive.google.com/uc?export=view&id=14-EDsOB0Aoz4usTsseTLYMEjQfQE_8dp',
+      image:'https://drive.google.com/thumbnail?id=14-EDsOB0Aoz4usTsseTLYMEjQfQE_8dp&sz=w1000',
       nutrition:{kcal:145, protein:1.8, carbs:7.5, fat:12},
       ingredients:[
-        {name:'Kokosraspeln', amount:300, unit:'g'},
-        {name:'Mascarpone', amount:200, unit:'g'},
-        {name:'Kuvertüre / Schokolade', amount:250, unit:'g'},
+        {name:'Kokosraspeln', amount:200, unit:'g'},
+        {name:'Mascarpone oder Doppelrahmfrischkäse', amount:250, unit:'g'},
+        {name:'Vollmilch- oder Zartbitterschokolade', amount:200, unit:'g'},
         {name:'Kokosöl', amount:1, unit:'EL'}
       ],
       steps:[
@@ -870,14 +880,14 @@
       baseServings:3,
       lastCooked:null,
       colors:['#e3e6d3','#d4a531'],
-      image:'https://drive.google.com/uc?export=view&id=17ohiiUFoyeOaOWC2my27ORo5o6fpXJj5',
+      image:'https://drive.google.com/thumbnail?id=17ohiiUFoyeOaOWC2my27ORo5o6fpXJj5&sz=w1000',
       nutrition:{kcal:460, protein:14, carbs:92, fat:1.5},
       ingredients:[
-        {name:'Mehl', amount:500, unit:'g'},
-        {name:'lauwarmes Wasser', amount:400, unit:'ml'},
-        {name:'Trockenhefe', amount:7, unit:'g'},
-        {name:'Salz', amount:10, unit:'g'},
-        {name:'Mehl zum Bestäuben', amount:0, unit:'nach Bedarf'}
+        {name:'lauwarmes Wasser', amount:320, unit:'ml'},
+        {name:'Trockenhefe (ca. 1 TL)', amount:4, unit:'g'},
+        {name:'Weizenmehl (Type 550 oder Brotmehl)', amount:400, unit:'g'},
+        {name:'Salz (ca. 1 TL)', amount:8, unit:'g'},
+        {name:'Mehl zum Bestäuben und Formen', amount:1, unit:'nach Bedarf'}
       ],
       steps:[
         {text:'Lauwarmes Wasser und Trockenhefe in einer Schüssel vermengen.'},
@@ -901,22 +911,22 @@
       baseServings:4,
       lastCooked:null,
       colors:['#c9a25c','#7a2f2a'],
-      image:'https://drive.google.com/uc?export=view&id=1kk-NXSXsuaaD9I2Y-GJg9BsTBdIwhKOZ',
+      image:'https://drive.google.com/thumbnail?id=1kk-NXSXsuaaD9I2Y-GJg9BsTBdIwhKOZ&sz=w1000',
       nutrition:{kcal:620, protein:22, carbs:48, fat:38},
       ingredients:[
-        {name:'Bacon', amount:150, unit:'g'},
-        {name:'Zwiebel', amount:1, unit:null},
-        {name:'Staudensellerie', amount:1, unit:'Stange'},
-        {name:'Mehl', amount:3, unit:'EL'},
-        {name:'Milch', amount:500, unit:'ml'},
-        {name:'Hühnerbrühe', amount:500, unit:'ml'},
-        {name:'Paprikapulver', amount:1, unit:'TL'},
-        {name:'Kartoffeln, gewürfelt', amount:800, unit:'g'},
-        {name:'Cheddar, gerieben', amount:150, unit:'g'},
-        {name:'saure Sahne', amount:100, unit:'g'},
-        {name:'Frühlingszwiebel', amount:2, unit:null},
-        {name:'Salz & Pfeffer', amount:0, unit:'nach Bedarf'},
-        {name:'Brot zum Servieren', amount:0, unit:'nach Bedarf'}
+        {name:'Bacon / Frühstücksspeck (in Streifen geschnitten)', amount:200, unit:'g'},
+        {name:'Zwiebel (gewürfelt)', amount:1, unit:'Stück'},
+        {name:'Staudensellerie (fein gewürfelt)', amount:2, unit:'Stangen'},
+        {name:'Mehl', amount:2, unit:'EL'},
+        {name:'Milch oder Sahne-Milch-Mischung', amount:500, unit:'ml'},
+        {name:'Hühner- oder Gemüsebrühe', amount:500, unit:'ml'},
+        {name:'Paprikapulver (edelsüß oder geräuchert)', amount:1, unit:'TL'},
+        {name:'Schwarzer Pfeffer & Salz', amount:1, unit:'Prise'},
+        {name:'Kartoffeln (vorwiegend festkochend, geschält und gewürfelt)', amount:4, unit:'Stück'},
+        {name:'Cheddar (gerieben)', amount:150, unit:'g'},
+        {name:'Saure Sahne oder Schmand (zum Garnieren)', amount:4, unit:'EL'},
+        {name:'Frühlingszwiebeln (in Röllchen geschnitten)', amount:2, unit:'Stängel'},
+        {name:'Geröstetes Brot / Toast (als Beilage)', amount:4, unit:'Scheiben'}
       ],
       steps:[
         {text:'Bacon in Streifen schneiden und knusprig anbraten, herausnehmen, Fett im Topf lassen.', timer:420},
@@ -939,18 +949,20 @@
       baseServings:4,
       lastCooked:null,
       colors:['#d4a531','#49592f'],
-      image:'https://drive.google.com/uc?export=view&id=1nz7m-WdhY6s9dBLVuiIn3FIlFXMJU9LS',
+      image:'https://drive.google.com/thumbnail?id=1nz7m-WdhY6s9dBLVuiIn3FIlFXMJU9LS&sz=w1000',
       nutrition:{kcal:260, protein:5, carbs:30, fat:14},
       ingredients:[
-        {name:'festkochende Kartoffeln', amount:4, unit:null},
-        {name:'Olivenöl', amount:4, unit:'EL'},
-        {name:'Knoblauchzehe, gepresst', amount:2, unit:null},
-        {name:'Paprikapulver', amount:1, unit:'TL'},
+        {name:'Kartoffeln (vorwiegend festkochend)', amount:4, unit:'Stück'},
+        {name:'Olivenöl oder Avocadoöl', amount:4, unit:'EL'},
+        {name:'Knoblauch', amount:2, unit:'Zehen'},
+        {name:'Paprikapulver (edelsüß oder geräuchert)', amount:1, unit:'TL'},
         {name:'Chiliflocken', amount:0.5, unit:'TL'},
-        {name:'getrocknete Kräuter', amount:1, unit:'TL'},
-        {name:'Parmesan, gerieben', amount:40, unit:'g'},
-        {name:'Petersilie', amount:1, unit:'EL'},
-        {name:'Salz & Pfeffer', amount:0, unit:'nach Bedarf'}
+        {name:'getrockneter Rosmarin / Kräuter', amount:0.5, unit:'TL'},
+        {name:'Salz', amount:0.5, unit:'TL'},
+        {name:'Schwarzer Pfeffer', amount:1, unit:'Prise'},
+        {name:'Parmesan (frisch gerieben)', amount:30, unit:'g'},
+        {name:'frische Petersilie (gehackt)', amount:1, unit:'EL'},
+        {name:'Chili-Mayonnaise / Mayo-Dip (optional)', amount:4, unit:'EL'}
       ],
       steps:[
         {text:'Kartoffeln schälen, Ränder gerade schneiden, sodass gleichmäßige Scheiben entstehen.'},
@@ -972,16 +984,16 @@
       baseServings:3,
       lastCooked:null,
       colors:['#e8b98f','#7a5a35'],
-      image:'https://drive.google.com/uc?export=view&id=1waI-OyExizRr_vu6e6Q_kQVJK3xYx9Dy',
+      image:'https://drive.google.com/thumbnail?id=1waI-OyExizRr_vu6e6Q_kQVJK3xYx9Dy&sz=w1000',
       nutrition:{kcal:770, protein:7, carbs:62, fat:54},
       ingredients:[
-        {name:'Kinder Bueno White Riegel', amount:4, unit:null},
-        {name:'Schlagsahne', amount:300, unit:'ml'},
-        {name:'Puderzucker', amount:2, unit:'EL'},
-        {name:'Vanilleextrakt', amount:1, unit:'TL'},
-        {name:'Haselnusscreme', amount:80, unit:'g'},
-        {name:'weiße Schokolade', amount:150, unit:'g'},
-        {name:'dunkle Schokolade', amount:20, unit:'g'}
+        {name:'Kalte Schlagsahne', amount:200, unit:'ml'},
+        {name:'Puderzucker', amount:1, unit:'EL'},
+        {name:'Vanilleextrakt / Vanillearoma', amount:1, unit:'TL'},
+        {name:'Haselnusscreme (oder helle Bueno-Creme)', amount:2, unit:'EL'},
+        {name:'weiße Schokolade (50 g für Mousse, 100 g für Knack-Schicht)', amount:150, unit:'g'},
+        {name:'Kinder Bueno White (2 Packungen)', amount:4, unit:'Riegel'},
+        {name:'Zartbitter- oder Vollmilchschokolade (zum Dekorieren)', amount:20, unit:'g'}
       ],
       steps:[
         {text:'Drei Kinder-Bueno-Riegel in Stücke schneiden, einen weiteren für die Deko dritteln.'},
@@ -1004,17 +1016,17 @@
       baseServings:2,
       lastCooked:null,
       colors:['#c0432b','#e3e6d3'],
-      image:'https://drive.google.com/uc?export=view&id=1ZtBkWxQtn1xWk72_5NFF-QJBcq_4QOhq',
+      image:'https://drive.google.com/thumbnail?id=1ZtBkWxQtn1xWk72_5NFF-QJBcq_4QOhq&sz=w1000',
       nutrition:{kcal:920, protein:58, carbs:65, fat:48},
       ingredients:[
-        {name:'Fettuccine', amount:250, unit:'g'},
-        {name:'Hähnchenbrust', amount:400, unit:'g'},
-        {name:'Cajun-Gewürz', amount:2, unit:'EL'},
-        {name:'Olivenöl', amount:1, unit:'EL'},
-        {name:'Butter', amount:2, unit:'EL'},
-        {name:'Schlagsahne', amount:250, unit:'ml'},
-        {name:'Parmesan, gerieben', amount:80, unit:'g'},
-        {name:'Petersilie', amount:1, unit:'EL'}
+        {name:'große Hähnchenbrust (ca. 400 g)', amount:1, unit:'Stück'},
+        {name:'Cajun-Gewürzmischung', amount:2, unit:'EL'},
+        {name:'Butter (zum Anbraten)', amount:2, unit:'EL'},
+        {name:'Pflanzenöl', amount:1, unit:'EL'},
+        {name:'Schlagsahne', amount:350, unit:'ml'},
+        {name:'Parmesan (frisch gerieben)', amount:80, unit:'g'},
+        {name:'Fettuccine oder Tagliatelle', amount:250, unit:'g'},
+        {name:'frische Petersilie (gehackt)', amount:1, unit:'Handvoll'}
       ],
       steps:[
         {text:'Fettuccine in Salzwasser al dente kochen.', timer:600},
@@ -1040,17 +1052,18 @@
       colors:['#c9a25c','#d98a9c'],
       nutrition:{kcal:310, protein:6, carbs:42, fat:13},
       ingredients:[
-        {name:'Milch', amount:1000, unit:'ml'},
+        {name:'Vollmilch (aufgeteilt)', amount:1, unit:'l'},
         {name:'Zucker', amount:120, unit:'g'},
-        {name:'Zitronenschale', amount:1, unit:null},
-        {name:'Orangenschale', amount:1, unit:null},
-        {name:'Zimtstange', amount:1, unit:null},
-        {name:'Vanilleschote', amount:1, unit:null},
-        {name:'Speisestärke', amount:100, unit:'g'},
-        {name:'Ei, verquirlt', amount:2, unit:null},
-        {name:'Mehl (zum Panieren)', amount:50, unit:'g'},
-        {name:'Öl zum Frittieren', amount:300, unit:'ml'},
-        {name:'Zimt-Zucker-Mischung', amount:60, unit:'g'}
+        {name:'Speisestärke (z.B. Maisstärke)', amount:100, unit:'g'},
+        {name:'Zimt', amount:1, unit:'Stange'},
+        {name:'Vanilleschote (Mark und Schote)', amount:1, unit:'Stück'},
+        {name:'Bio-Orangenschale', amount:1, unit:'Streifen'},
+        {name:'Bio-Zitronenschale', amount:1, unit:'Streifen'},
+        {name:'Mehl oder zusätzliche Speisestärke (zum Wälzen)', amount:50, unit:'g'},
+        {name:'Eier (verquirlt)', amount:3, unit:'Stück'},
+        {name:'Pflanzenöl (zum Frittieren)', amount:500, unit:'ml'},
+        {name:'Zucker (für die Zimt-Zucker-Mischung)', amount:4, unit:'EL'},
+        {name:'Zimtpulver', amount:1, unit:'TL'}
       ],
       steps:[
         {text:'800ml Milch mit Zucker, Zitronen- und Orangenschale, Zimtstange und Vanille erhitzen.'},
@@ -1076,15 +1089,15 @@
       colors:['#7a5a35','#c0432b'],
       nutrition:{kcal:38, protein:4, carbs:3, fat:1},
       ingredients:[
-        {name:'Proteinpulver (Schoko)', amount:60, unit:'g'},
-        {name:'Mehl', amount:60, unit:'g'},
+        {name:'Proteinpulver (Schoko oder Vanille)', amount:30, unit:'g'},
+        {name:'Backkakao (für den Brownieteig)', amount:20, unit:'g'},
+        {name:'Mehl oder Hafermehl', amount:30, unit:'g'},
         {name:'Backpulver', amount:1, unit:'TL'},
-        {name:'Süßungsmittel', amount:30, unit:'g'},
-        {name:'Ei', amount:2, unit:null},
-        {name:'Magerquark oder Apfelmark', amount:150, unit:'g'},
-        {name:'Milch', amount:50, unit:'ml'},
-        {name:'Kakaopulver', amount:2, unit:'EL'},
-        {name:'Schokodrops', amount:30, unit:'g'}
+        {name:'Erythrit oder Süßungsmittel nach Wahl', amount:30, unit:'g'},
+        {name:'Ei (oder 50 g Eiklar)', amount:1, unit:'Stück'},
+        {name:'Magerquark, ungesü�tes Apfelmark oder griechischer Joghurt', amount:50, unit:'g'},
+        {name:'Mandelmilch oder fettarme Milch', amount:30, unit:'ml'},
+        {name:'Zuckerfreie Schokodrops', amount:15, unit:'g'}
       ],
       steps:[
         {text:'Ofen auf 180°C vorheizen, kleine Backform mit Backpapier auslegen.'},
@@ -1108,10 +1121,10 @@
       colors:['#d4c531','#e8b98f'],
       nutrition:{kcal:290, protein:2, carbs:25, fat:20},
       ingredients:[
-        {name:'Zitronen', amount:6, unit:null},
-        {name:'Schlagsahne', amount:500, unit:'ml'},
+        {name:'Bio-Zitronen (für Saft und als Schale zum Servieren)', amount:4, unit:'Stück'},
+        {name:'Schlagsahne (Heavy Cream)', amount:450, unit:'ml'},
         {name:'Zucker', amount:130, unit:'g'},
-        {name:'Zucker zum Karamellisieren', amount:3, unit:'EL'}
+        {name:'Zucker (zum Flambieren/Karamellisieren)', amount:3, unit:'EL'}
       ],
       steps:[
         {text:'Zitronen waschen und der Länge nach halbieren.'},
@@ -1137,17 +1150,17 @@
       colors:['#8a9a3f','#d4c531'],
       nutrition:{kcal:340, protein:5, carbs:48, fat:15},
       ingredients:[
-        {name:'Limetten (unbehandelt)', amount:2, unit:null},
+        {name:'Limetten (Bio/ungespritzt)', amount:2, unit:'Stück'},
         {name:'Zucker', amount:200, unit:'g'},
-        {name:'Milch', amount:100, unit:'ml'},
-        {name:'Eier', amount:3, unit:null},
-        {name:'neutrales Öl', amount:120, unit:'ml'},
+        {name:'Milch', amount:60, unit:'ml'},
+        {name:'Eier', amount:3, unit:'Stück'},
+        {name:'neutrales Pflanzenöl (z.B. Sonnenblumen- oder Rapsöl)', amount:100, unit:'ml'},
         {name:'Vanilleextrakt', amount:1, unit:'TL'},
-        {name:'Mehl', amount:250, unit:'g'},
+        {name:'Mehl', amount:220, unit:'g'},
         {name:'Backpulver', amount:2, unit:'TL'},
-        {name:'kalte Butter (Streifen)', amount:20, unit:'g'},
-        {name:'Puderzucker', amount:100, unit:'g'},
-        {name:'Limettensaft (für Glasur)', amount:2, unit:'EL'}
+        {name:'kalte Butter (als Streifen)', amount:15, unit:'g'},
+        {name:'Puderzucker (für die Glasur)', amount:120, unit:'g'},
+        {name:'Milch oder Limettensaft (für die Glasur)', amount:2, unit:'EL'}
       ],
       steps:[
         {text:'Limetten waschen und in kochendem Wasser ca. 10 Minuten kochen.', timer:600},
@@ -1174,10 +1187,10 @@
       colors:['#d4c531','#f4ded0'],
       nutrition:{kcal:270, protein:2, carbs:22, fat:20},
       ingredients:[
-        {name:'Zitronen', amount:4, unit:null},
-        {name:'Zucker', amount:110, unit:'g'},
-        {name:'Schlagsahne', amount:450, unit:'ml'},
-        {name:'brauner Zucker zum Karamellisieren', amount:3, unit:'EL'}
+        {name:'Bio-Zitronen (3 zum Aushöhlen/Entsaften, 1 für Abrieb)', amount:4, unit:'Stück'},
+        {name:'Schlagsahne (Whipping Cream)', amount:400, unit:'ml'},
+        {name:'Zucker', amount:100, unit:'g'},
+        {name:'Brauner Zucker (zum Karamellisieren)', amount:3, unit:'EL'}
       ],
       steps:[
         {text:'Drei Zitronen halbieren, Fruchtfleisch herausschälen, sodass 6 Schalen entstehen.'},
@@ -1202,23 +1215,28 @@
       colors:['#b5502e','#7a2f2a'],
       nutrition:{kcal:340, protein:32, carbs:28, fat:9},
       ingredients:[
-        {name:'Zwiebel', amount:1, unit:null},
-        {name:'rote Paprika', amount:1, unit:null},
-        {name:'grüne Paprika', amount:1, unit:null},
-        {name:'Knoblauchzehe', amount:2, unit:null},
-        {name:'mageres Rinderhackfleisch', amount:600, unit:'g'},
+        {name:'Zwiebel', amount:1, unit:'Stück'},
+        {name:'rote Paprika', amount:1, unit:'Stück'},
+        {name:'grüne Paprika', amount:1, unit:'Stück'},
+        {name:'Knoblauch (gehackt)', amount:1, unit:'EL'},
+        {name:'mageres Rinderhackfleisch', amount:450, unit:'g'},
         {name:'geräuchertes Paprikapulver', amount:1, unit:'TL'},
-        {name:'Kreuzkümmel', amount:1, unit:'TL'},
+        {name:'Kreuzkümmel (Cumin)', amount:1, unit:'TL'},
         {name:'Chilipulver', amount:1, unit:'TL'},
+        {name:'Knoblauchpulver', amount:1, unit:'TL'},
+        {name:'Zwiebelpulver', amount:1, unit:'TL'},
+        {name:'Salz und Pfeffer', amount:0, unit:'nach Bedarf'},
         {name:'Tomatenmark', amount:1, unit:'EL'},
-        {name:'Chipotle-Sauce', amount:2, unit:'EL'},
-        {name:'Limettensaft', amount:1, unit:'EL'},
+        {name:'Chipotle in Adobo Sauce', amount:1, unit:'TL'},
+        {name:'Limette (Saft davon)', amount:0.5, unit:'Stück'},
         {name:'Honig', amount:1, unit:'EL'},
-        {name:'Tortillas', amount:6, unit:null},
-        {name:'Käse, gerieben', amount:100, unit:'g'},
-        {name:'griechischer Joghurt', amount:100, unit:'g'},
+        {name:'kalorienarme Tortilla-Wraps', amount:6, unit:'Stück'},
+        {name:'geriebener fettarmer Käse (optional)', amount:60, unit:'g'},
+        {name:'magerer griechischer Joghurt (0% Fett)', amount:170, unit:'g'},
         {name:'Light-Mayonnaise', amount:1, unit:'EL'},
-        {name:'Chipotle in Adobo', amount:1, unit:'TL'}
+        {name:'Honig (für die Sauce)', amount:1, unit:'TL'},
+        {name:'Chipotle in Adobo (für die Sauce)', amount:1, unit:'TL'},
+        {name:'Wasser (zum Verdünnen der Sauce)', amount:0, unit:'nach Bedarf'}
       ],
       steps:[
         {text:'Zwiebel und Paprika fein würfeln.'},
@@ -1244,12 +1262,12 @@
       colors:['#c9a25c','#8a5a2b'],
       nutrition:{kcal:285, protein:4, carbs:39, fat:14},
       ingredients:[
-        {name:'Kokosraspeln', amount:300, unit:'g'},
-        {name:'gezuckerte Kondensmilch', amount:200, unit:'g'},
-        {name:'Vanilleextrakt', amount:1, unit:'TL'},
-        {name:'Zucker (Karamell)', amount:150, unit:'g'},
-        {name:'Wasser', amount:50, unit:'ml'},
-        {name:'Zitronensaft', amount:1, unit:'TL'}
+        {name:'ungesüßte Kokosraspel', amount:200, unit:'g'},
+        {name:'gezuckerte Kondensmilch (ca. 400g, z.B. Milchmädchen)', amount:1, unit:'Dose'},
+        {name:'Vanilleextrakt (optional)', amount:1, unit:'TL'},
+        {name:'Zucker', amount:200, unit:'g'},
+        {name:'Wasser', amount:80, unit:'ml'},
+        {name:'Zitronensaft', amount:1, unit:'Spritzer'}
       ],
       steps:[
         {text:'Kokosraspel, Kondensmilch und Vanilleextrakt in eine Pfanne geben.'},
@@ -1273,14 +1291,15 @@
       colors:['#d4a531','#e3e6d3'],
       nutrition:{kcal:450, protein:15, carbs:38, fat:26},
       ingredients:[
-        {name:'Knoblauchzehen', amount:8, unit:null},
-        {name:'Olivenöl', amount:3, unit:'EL'},
-        {name:'Butter, weich', amount:100, unit:'g'},
-        {name:'Chiliflocken', amount:0.5, unit:'TL'},
-        {name:'Petersilie, gehackt', amount:2, unit:'EL'},
-        {name:'Baguette oder Ciabatta', amount:1, unit:null},
-        {name:'Mozzarella, gerieben', amount:200, unit:'g'},
-        {name:'Salz & Pfeffer', amount:0, unit:'nach Bedarf'}
+        {name:'Ciabatta- oder Baguettebrot', amount:1, unit:'Stück'},
+        {name:'Knoblauch (geschält)', amount:15, unit:'Zehen'},
+        {name:'Olivenöl', amount:4, unit:'EL'},
+        {name:'weiche Butter', amount:70, unit:'g'},
+        {name:'Chiliflocken / Pul Biber', amount:1, unit:'TL'},
+        {name:'Salz', amount:0.5, unit:'TL'},
+        {name:'schwarzer Pfeffer', amount:0.25, unit:'TL'},
+        {name:'frische Petersilie (fein gehackt)', amount:2, unit:'EL'},
+        {name:'geriebener Mozzarella (oder Gouda)', amount:200, unit:'g'}
       ],
       steps:[
         {text:'Knoblauchzehen in Olivenöl bei niedriger Hitze goldbraun und weich anbraten.', timer:600},
@@ -1305,14 +1324,17 @@
       colors:['#e3e6d3','#d4a531'],
       nutrition:{kcal:285, protein:7, carbs:40, fat:10},
       ingredients:[
-        {name:'lauwarmes Wasser', amount:120, unit:'ml'},
-        {name:'griechischer Joghurt', amount:100, unit:'g'},
+        {name:'warmes Wasser', amount:125, unit:'ml'},
+        {name:'Naturjoghurt oder griechischer Joghurt', amount:120, unit:'g'},
         {name:'Zucker', amount:1, unit:'TL'},
-        {name:'Trockenhefe', amount:7, unit:'g'},
-        {name:'Butter, geschmolzen', amount:2, unit:'EL'},
-        {name:'Mehl', amount:400, unit:'g'},
+        {name:'Trockenhefe (ca. 3,5 g)', amount:1, unit:'TL'},
+        {name:'geschmolzene Butter (abgekühlt)', amount:2, unit:'EL'},
+        {name:'Weizenmehl (Type 550 oder Bread Flour)', amount:320, unit:'g'},
         {name:'Salz', amount:1, unit:'TL'},
-        {name:'Knoblauchbutter zum Bestreichen', amount:3, unit:'EL'}
+        {name:'Pflanzenöl (zum Einölen der Schüssel)', amount:1, unit:'TL'},
+        {name:'Butter (geschmolzen, für Knoblauchbutter-Topping)', amount:40, unit:'g'},
+        {name:'Knoblauch (fein gerieben, optional)', amount:1, unit:'Zehe'},
+        {name:'gehackte Petersilie oder Koriander (optional)', amount:1, unit:'EL'}
       ],
       steps:[
         {text:'Wasser, Joghurt, Zucker, Hefe und abgekühlte Butter verrühren.'},
@@ -1339,22 +1361,22 @@
       colors:['#c0432b','#d4a531'],
       nutrition:{kcal:580, protein:42, carbs:38, fat:28},
       ingredients:[
-        {name:'Hähnchenbrust, gewürfelt', amount:500, unit:'g'},
+        {name:'Hähnchenbrustfilet (in mundgerechte Stücke geschnitten)', amount:500, unit:'g'},
         {name:'Salz', amount:1, unit:'TL'},
-        {name:'Paprikapulver', amount:1, unit:'TL'},
+        {name:'Paprikapulver oder Chilipulver', amount:1, unit:'TL'},
         {name:'Knoblauchpulver', amount:1, unit:'TL'},
-        {name:'Speisestärke', amount:80, unit:'g'},
-        {name:'Eier', amount:2, unit:null},
-        {name:'Öl zum Frittieren', amount:500, unit:'ml'},
+        {name:'Speisestärke (Mais- oder Kartoffelstärke)', amount:50, unit:'g'},
+        {name:'Eigelb (oder ganze Eier)', amount:2, unit:'Stück'},
+        {name:'Pflanzenöl (zum Frittieren)', amount:500, unit:'ml'},
         {name:'Butter', amount:2, unit:'EL'},
-        {name:'Knoblauchzehe, gehackt', amount:3, unit:null},
-        {name:'Ketchup', amount:3, unit:'EL'},
-        {name:'Gochujang', amount:2, unit:'EL'},
+        {name:'Knoblauch (fein gehackt)', amount:3, unit:'Zehen'},
+        {name:'Ketchup', amount:2, unit:'EL'},
+        {name:'Gochujang (koreanische Chilipaste)', amount:2, unit:'EL'},
         {name:'Sojasauce', amount:2, unit:'EL'},
         {name:'brauner Zucker', amount:2, unit:'EL'},
-        {name:'Honig', amount:1, unit:'EL'},
-        {name:'Sesam, geröstet', amount:1, unit:'EL'},
-        {name:'Frühlingszwiebel', amount:1, unit:null}
+        {name:'Honig oder Reissirup', amount:1, unit:'EL'},
+        {name:'geröstete Sesamsamen', amount:1, unit:'TL'},
+        {name:'Frühlingszwiebel (in feine Ringe geschnitten)', amount:1, unit:'Stange'}
       ],
       steps:[
         {text:'Hähnchen würfeln, mit Salz, Paprika und Knoblauchpulver würzen.'},
@@ -1378,13 +1400,19 @@
       colors:['#c9a25c','#b5502e'],
       nutrition:{kcal:420, protein:7, carbs:62, fat:16},
       ingredients:[
-        {name:'Hefeteig (Mehl, Milch, Hefe, Zucker, Ei, Butter)', amount:600, unit:'g'},
-        {name:'Butter, weich', amount:100, unit:'g'},
-        {name:'brauner Zucker', amount:120, unit:'g'},
-        {name:'Zimt', amount:2, unit:'EL'},
-        {name:'Frischkäse', amount:100, unit:'g'},
-        {name:'Puderzucker', amount:80, unit:'g'},
-        {name:'Milch', amount:2, unit:'EL'}
+        {name:'Mehl (Weizenmehl Type 405 oder 550)', amount:500, unit:'g'},
+        {name:'Trockenhefe (oder 1/2 Würfel frische Hefe)', amount:1, unit:'Pck.'},
+        {name:'Milch (lauwarm)', amount:200, unit:'ml'},
+        {name:'Zucker (für den Teig)', amount:60, unit:'g'},
+        {name:'Butter (weich, für den Teig)', amount:60, unit:'g'},
+        {name:'Salz', amount:1, unit:'Prise'},
+        {name:'Ei', amount:1, unit:'Stk.'},
+        {name:'Butter (sehr weich/geschmolzen, für die Füllung)', amount:70, unit:'g'},
+        {name:'brauner Zucker oder Rohrzucker (für die Füllung)', amount:100, unit:'g'},
+        {name:'Zimt (gemahlen)', amount:2, unit:'TL'},
+        {name:'Frischkäse (für das Frosting)', amount:100, unit:'g'},
+        {name:'Puderzucker (für das Frosting)', amount:50, unit:'g'},
+        {name:'Milch oder flüssige Butter (nach Bedarf zum Verflüssigen)', amount:2, unit:'EL'}
       ],
       steps:[
         {text:'Süßen Hefeteig zubereiten, gut kneten und an einem warmen Ort gehen lassen, bis er sich verdoppelt hat.', timer:3600},
@@ -1410,14 +1438,14 @@
       colors:['#e8974a','#f4ded0'],
       nutrition:{kcal:290, protein:4, carbs:36, fat:9},
       ingredients:[
-        {name:'Mürbeteig', amount:1, unit:null},
-        {name:'Gelatine', amount:12, unit:'g'},
-        {name:'Prosecco', amount:400, unit:'ml'},
-        {name:'Aperol', amount:300, unit:'ml'},
-        {name:'Sodawasser', amount:300, unit:'ml'},
-        {name:'Zucker', amount:60, unit:'g'},
-        {name:'Eiweiß', amount:2, unit:null},
-        {name:'Zucker (Meringue)', amount:100, unit:'g'}
+        {name:'Mürbeteig / Pie-Kruste (ca. 250 g)', amount:1, unit:'Rolle'},
+        {name:'Prosecco / Schaumwein', amount:500, unit:'ml'},
+        {name:'Aperol', amount:350, unit:'ml'},
+        {name:'Sodawasser / Mineralwasser mit Kohlensäure', amount:150, unit:'ml'},
+        {name:'Gelatine (oder entsprechende Menge Gelierpulver für 1 Liter Flüssigkeit)', amount:12, unit:'Blatt'},
+        {name:'Zucker (optional, je nach Süßegrad)', amount:50, unit:'g'},
+        {name:'Eiweiß', amount:2, unit:'Stück'},
+        {name:'Feiner Zucker (für das Baiser)', amount:100, unit:'g'}
       ],
       steps:[
         {text:'Mürbeteig ausrollen, in eine Pieform legen und blindbacken bis goldbraun, abkühlen lassen.', timer:1500},
@@ -1442,12 +1470,12 @@
       colors:['#7a5a35','#c9a25c'],
       nutrition:{kcal:560, protein:7, carbs:42, fat:40},
       ingredients:[
-        {name:'Eigelb', amount:4, unit:null},
-        {name:'Zucker', amount:100, unit:'g'},
+        {name:'pasteurisiertes Eigelb (ca. 4–5 Eigelb)', amount:80, unit:'g'},
+        {name:'Zucker', amount:120, unit:'g'},
         {name:'Mascarpone', amount:500, unit:'g'},
-        {name:'Espresso, kalt', amount:300, unit:'ml'},
-        {name:'Löffelbiskuits', amount:250, unit:'g'},
-        {name:'Kakaopulver', amount:2, unit:'EL'}
+        {name:'starker Kaffee / Espresso (abgekühlt)', amount:200, unit:'ml'},
+        {name:'Löffelbiskuits (Savoiardi)', amount:150, unit:'g'},
+        {name:'Backkakao (ungesüßt) zum Bestäuben', amount:2, unit:'EL'}
       ],
       steps:[
         {text:'Eigelb mit Zucker cremig weiß aufschlagen.'},
